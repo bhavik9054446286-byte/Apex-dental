@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   MessageSquare, 
@@ -31,6 +31,23 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<'all' | 'clinic' | 'orthodontics' | 'implants' | 'treatment' | 'pediatric'>('all');
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  
+  // Close modal on Escape key and prevent background body scrolling
+  useEffect(() => {
+    if (!selectedItem) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedItem(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedItem]);
   
   // Before & After Interactive State
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -451,10 +468,28 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
 
       {/* Lightbox / Image Detail Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
-            {/* Modal Image */}
-            <div className="relative aspect-16/9 bg-slate-900 w-full overflow-hidden">
+        <div 
+          onClick={() => setSelectedItem(null)}
+          className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+        >
+          {/* Always-visible screen corner close button */}
+          <button
+            onClick={() => setSelectedItem(null)}
+            className="fixed top-3 right-3 sm:top-5 sm:right-6 z-60 p-2.5 sm:p-3 rounded-full bg-slate-900/90 hover:bg-rose-600 text-white shadow-2xl border border-white/20 transition-all cursor-pointer hover:scale-105 active:scale-95 flex items-center gap-1.5"
+            aria-label="Close photo preview"
+            title="Close preview (Esc)"
+          >
+            <X className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="hidden sm:inline text-xs font-semibold pr-1">Close</span>
+          </button>
+
+          {/* Modal Container */}
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative bg-white rounded-2xl sm:rounded-3xl max-w-xl sm:max-w-2xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-slate-200/90 overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-150"
+          >
+            {/* Modal Image Header with Controlled Height */}
+            <div className="relative h-48 sm:h-60 md:h-68 w-full bg-slate-950 shrink-0 overflow-hidden flex items-center justify-center">
               <img
                 src={selectedItem.imageUrl}
                 alt={selectedItem.title}
@@ -462,22 +497,23 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               />
               <button
                 onClick={() => setSelectedItem(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/70 text-white hover:bg-slate-900 transition-colors"
+                className="absolute top-3 right-3 p-2 rounded-full bg-slate-900/80 hover:bg-rose-600 text-white transition-colors shadow-md cursor-pointer"
+                title="Close"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
-              <div className="absolute bottom-3 left-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-md">
+              <div className="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur-xs text-white text-[11px] sm:text-xs font-bold px-3 py-1 rounded-md border border-white/10">
                 {selectedItem.treatmentTag}
               </div>
             </div>
 
-            {/* Modal Content */}
-            <div className="p-6 sm:p-7 space-y-4">
+            {/* Modal Content - Scrollable if screen height is constrained */}
+            <div className="p-5 sm:p-6 overflow-y-auto space-y-4 flex-1">
               <div>
                 <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
                   {selectedItem.categoryLabel}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
+                <h3 className="text-lg sm:text-2xl font-bold text-slate-900 mt-1">
                   {selectedItem.title}
                 </h3>
               </div>
@@ -501,7 +537,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+              <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-2.5">
                 <button
                   onClick={() => {
                     const tag = selectedItem.treatmentTag || selectedItem.title;

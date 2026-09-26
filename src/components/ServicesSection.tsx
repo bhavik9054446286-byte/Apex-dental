@@ -249,8 +249,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
       {/* Service Detail Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5 animate-in fade-in zoom-in-95 duration-150">
+        <div 
+          onClick={() => setSelectedService(null)}
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5 animate-in fade-in zoom-in-95 duration-150 my-auto max-h-[90vh] overflow-y-auto"
+          >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
