@@ -3,22 +3,19 @@ import {
   Phone, 
   MapPin, 
   Clock, 
-  Sparkles, 
-  MessageSquare, 
-  Heart,
   Star,
   ExternalLink,
   Mail,
   Instagram
 } from 'lucide-react';
-import { CLINIC_CONTACT, CLINIC_TIMINGS } from '../data/clinicData';
+import { CLINIC_CONTACT } from '../data/clinicData';
 
 interface FooterProps {
-  onOpenAi: () => void;
-  onBookClick: () => void;
+  onOpenAi?: () => void;
+  onBookClick?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenAi, onBookClick }) => {
+export const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,48 +50,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAi, onBookClick }) => {
               </div>
               <span className="font-bold text-white">5.0 Rating</span>
               <span className="text-slate-500">· Google Reviews</span>
-            </div>
-
-            <div className="pt-2 flex flex-wrap gap-2">
-              <a
-                href={`https://wa.me/${CLINIC_CONTACT.phoneRaw}?text=${encodeURIComponent(
-                  'Hello Dr. Darshak Vaghani, I would like to book an appointment at Apex Dental Clinic, Mota Varachha, Surat.'
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
-              >
-                <MessageSquare className="w-3.5 h-3.5 fill-white/20" />
-                <span>WhatsApp Appointment</span>
-              </a>
-
-              <a
-                href={CLINIC_CONTACT.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white rounded-lg text-xs font-bold transition-all cursor-pointer shadow-md hover:scale-105"
-                title="Follow Apex Dental Clinic on Instagram"
-              >
-                <Instagram className="w-3.5 h-3.5" />
-                <span>@apexdentalclinic16</span>
-              </a>
-
-              <a
-                href={`mailto:${CLINIC_CONTACT.email}`}
-                className="inline-flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-medium transition-colors cursor-pointer"
-                title="Email Dr. Darshak Vaghani"
-              >
-                <Mail className="w-3.5 h-3.5 text-rose-400" />
-                <span>Email Us</span>
-              </a>
-
-              <button
-                onClick={onOpenAi}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-teal-900/80 hover:bg-teal-800 text-teal-200 border border-teal-700/80 rounded-lg text-xs font-semibold transition-colors cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-                <span>Ask Dental AI</span>
-              </button>
             </div>
           </div>
 

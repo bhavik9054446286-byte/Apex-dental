@@ -68,18 +68,18 @@ export default function App() {
           onOpenAi={() => setIsAiModalOpen(true)}
         />
 
+        {/* Treatment & Clinic Image Showcase Section (Clinic Tour & Real Cases) */}
+        <TreatmentGallery 
+          onBookService={(svc) => handleBookService(svc)}
+          onAskAi={(q) => setIsAiModalOpen(true)}
+        />
+
         {/* Services Section (All 24 Services with filters and instant booking) */}
         <ServicesSection 
           onBookService={(svc) => handleBookService(svc)}
           onAskAiAboutService={(svc) => {
             setIsAiModalOpen(true);
           }}
-        />
-
-        {/* Treatment & Clinic Image Showcase Section */}
-        <TreatmentGallery 
-          onBookService={(svc) => handleBookService(svc)}
-          onAskAi={(q) => setIsAiModalOpen(true)}
         />
 
         {/* Interactive Smile Advisor Quiz */}
