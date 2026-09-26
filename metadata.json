@@ -1,0 +1,7 @@
+{
+  "name": "Apex Dental Clinic",
+  "description": "Apex Dental Clinic in Mota Varachha, Surat led by Dr. Darshak Vaghani (B.D.S., M.D.S. Orthodontist). Advanced dental care, Invisalign, dental implants, cosmetic dentistry, and 24/7 AI dental assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
