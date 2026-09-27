@@ -24,10 +24,10 @@ app.get(['/googlefcc0d861f17d5700.html', '/googlefcc0d861f17d5700'], (_req, res)
 });
 
 // Search Engine Sitemap & Robots Routes
-app.get('/sitemap.xml', (_req, res) => {
+app.get(['/sitemap.xml', '/sitemaps.xml'], (_req, res) => {
   const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
   if (fs.existsSync(sitemapPath)) {
-    res.setHeader('Content-Type', 'application/xml');
+    res.setHeader('Content-Type', 'application/xml; charset=UTF-8');
     res.sendFile(sitemapPath);
   } else {
     res.status(404).send('Not found');
