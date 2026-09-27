@@ -70,6 +70,11 @@ export const Footer: React.FC<FooterProps> = () => {
                 </a>
               </li>
               <li>
+                <a href="#videos" className="hover:text-teal-400 transition-colors">
+                  Clinical Video Reels
+                </a>
+              </li>
+              <li>
                 <a href="#doctor" className="hover:text-teal-400 transition-colors">
                   Dr. Darshak Vaghani
                 </a>

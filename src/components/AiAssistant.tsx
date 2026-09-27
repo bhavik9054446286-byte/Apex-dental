@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { ChatMessage } from '../types/dental';
 import { SAMPLE_AI_PROMPTS, CLINIC_CONTACT } from '../data/clinicData';
+import { getSmartDentalFallback } from '../services/dentalAiBrain';
 
 interface AiAssistantProps {
   onBookTreatment?: (treatmentName?: string) => void;
@@ -77,21 +78,80 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
         text: m.text,
       }));
 
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: textToSend,
-          history: historyPayload,
-        }),
-      });
+      let botReply: string | null = null;
 
-      if (!res.ok) {
-        throw new Error('API server returned error');
+      // 1. Primary: Try standard API route (Express dev/production or Netlify redirected)
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: textToSend,
+            history: historyPayload,
+          }),
+        });
+
+        const contentType = res.headers.get('content-type') || '';
+        if (res.ok && contentType.includes('application/json')) {
+          const data = await res.json();
+          if (data && typeof data.reply === 'string' && data.reply.trim()) {
+            botReply = data.reply;
+          }
+        }
+      } catch (e) {
+        console.warn('/api/chat attempt failed:', e);
       }
 
-      const data = await res.json();
-      const botReply = data.reply || 'Thank you for reaching out! Dr. Darshak Vaghani is available at +91 79846 77833.';
+      // 2. Secondary: If on Netlify and /api/chat was not rewritten, try direct Netlify function
+      if (!botReply) {
+        try {
+          const res = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: textToSend,
+              history: historyPayload,
+            }),
+          });
+
+          const contentType = res.headers.get('content-type') || '';
+          if (res.ok && contentType.includes('application/json')) {
+            const data = await res.json();
+            if (data && typeof data.reply === 'string' && data.reply.trim()) {
+              botReply = data.reply;
+            }
+          }
+        } catch (e) {
+          console.warn('/.netlify/functions/chat attempt failed:', e);
+        }
+      }
+
+      // 3. Tertiary: If client-side VITE_GEMINI_API_KEY is configured in Netlify environment variables
+      if (!botReply && import.meta.env.VITE_GEMINI_API_KEY) {
+        try {
+          const { GoogleGenAI } = await import('@google/genai');
+          const ai = new GoogleGenAI({ apiKey: String(import.meta.env.VITE_GEMINI_API_KEY) });
+          const response = await ai.models.generateContent({
+            model: 'gemini-3.8-flash',
+            contents: [{ role: 'user', parts: [{ text: textToSend }] }],
+            config: {
+              systemInstruction: `You are the virtual assistant for Apex Dental Clinic in Mota Varachha, Surat led by Dr. Darshak Vaghani (Orthodontist). Answer warmly, accurately, and mention WhatsApp +91 79846 77833 for appointments. Support English, Gujarati, and Hindi.`,
+              temperature: 0.7,
+            },
+          });
+          if (response.text) {
+            botReply = response.text;
+          }
+        } catch (e) {
+          console.warn('Direct Gemini call failed:', e);
+        }
+      }
+
+      // 4. Guaranteed Clinical Knowledge Engine Fallback:
+      // Never shows "connection hitch" or error screen on Netlify or offline!
+      if (!botReply) {
+        botReply = getSmartDentalFallback(textToSend);
+      }
 
       const botMessage: ChatMessage = {
         id: 'bot-' + Date.now(),
@@ -103,10 +163,12 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error('Chat error:', err);
+      // Safe fallback with expert medical knowledge
+      const safeReply = getSmartDentalFallback(textToSend);
       const fallbackMessage: ChatMessage = {
-        id: 'bot-err-' + Date.now(),
+        id: 'bot-fallback-' + Date.now(),
         role: 'model',
-        text: `I'm having a brief connection hitch, but our clinic team is standing by! You can speak directly with Dr. Darshak Vaghani at Apex Dental Clinic by calling or messaging on WhatsApp at **+91 79846 77833**. We are open Mon–Sat 9am–8:30pm and Sunday 9am–1pm in Mota Varachha, Surat.`,
+        text: safeReply,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, fallbackMessage]);

@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { GoogleGenAI } from '@google/genai';
 
@@ -12,7 +13,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
-app.use(express.json());
+app.use(express.json({ limit: '60mb' }));
+app.use(express.urlencoded({ extended: true, limit: '60mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const ai = new GoogleGenAI({
@@ -174,6 +176,28 @@ app.post('/api/chat', async (req, res) => {
 // Quick Clinic Info endpoint
 app.get('/api/clinic-info', (_req, res) => {
   res.json(CLINIC_INFO);
+});
+
+// Upload Video Endpoint
+app.post('/api/upload-video', (req, res) => {
+  try {
+    const { videoBase64, filename } = req.body;
+    if (!videoBase64) {
+      res.status(400).json({ error: 'No video data provided' });
+      return;
+    }
+    const cleanBase64 = videoBase64.replace(/^data:video\/[a-zA-Z0-9.-]+;base64,/, '');
+    const buffer = Buffer.from(cleanBase64, 'base64');
+    const safeName = filename
+      ? `clinic-reel-${filename.replace(/[^a-zA-Z0-9.-]/g, '_')}`
+      : `clinic-reel-${Date.now()}.mp4`;
+    const filePath = path.join(__dirname, 'public', safeName);
+    fs.writeFileSync(filePath, buffer);
+    res.json({ success: true, url: `/${safeName}` });
+  } catch (err: any) {
+    console.error('Error saving video:', err);
+    res.status(500).json({ error: err?.message || 'Failed to save video' });
+  }
 });
 
 // Setup Vite middleware in dev or static files in production

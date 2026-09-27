@@ -22,6 +22,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAi, onBookClick }) => {
   const navLinks = [
     { label: 'Doctor', href: '#doctor' },
     { label: 'Gallery', href: '#gallery' },
+    { label: 'Videos', href: '#videos' },
     { label: 'Services', href: '#services' },
     { label: 'Smile Advisor', href: '#quiz' },
     { label: 'Timings', href: '#timings' },

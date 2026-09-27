@@ -233,7 +233,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
             </div>
 
             {/* Quick Case Switcher Tabs */}
-            <div className="flex items-center gap-1.5 p-1 bg-white rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex items-center flex-wrap gap-1.5 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-2xs">
               {BEFORE_AFTER_CASES.map((c, idx) => (
                 <button
                   key={c.id}
@@ -241,7 +241,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                     setActiveCaseIndex(idx);
                     setSliderPosition(50);
                   }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     activeCaseIndex === idx
                       ? 'bg-teal-700 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -360,7 +360,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                     ? '✦ High-definition verified clinical outcome'
                     : '◀ Slide left / right to compare transformation ▶'}
                 </span>
-                <span className="font-semibold text-teal-700">Case {activeCaseIndex + 1} of 3</span>
+                <span className="font-semibold text-teal-700">Case {activeCaseIndex + 1} of {BEFORE_AFTER_CASES.length}</span>
               </div>
             </div>
 
@@ -430,7 +430,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               <Eye className="w-4 h-4 text-teal-600" />
               <span>All {BEFORE_AFTER_CASES.length} Verified Clinical Cases (Click to view):</span>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
               {BEFORE_AFTER_CASES.map((item, idx) => (
                 <div
                   key={item.id}

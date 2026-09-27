@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
 import { TreatmentGallery } from './components/TreatmentGallery';
+import { VideoSection } from './components/VideoSection';
 import { DoctorProfile } from './components/DoctorProfile';
 import { AiAssistant } from './components/AiAssistant';
 import { TimingsAndLocation } from './components/TimingsAndLocation';
@@ -71,6 +72,12 @@ export default function App() {
         <TreatmentGallery 
           onBookService={(svc) => handleBookService(svc)}
           onAskAi={(q) => setIsAiModalOpen(true)}
+        />
+
+        {/* Clinical Video & Treatment Reels Section */}
+        <VideoSection 
+          onBookClick={(service) => handleBookService(service)}
+          onOpenAi={() => setIsAiModalOpen(true)}
         />
 
         {/* Services Section (All 24 Services with filters and instant booking) */}
