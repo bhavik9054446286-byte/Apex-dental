@@ -75,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAi, onBookClick }) => {
                 Apex Dental <span className="text-amber-600">Clinic</span>
               </span>
               <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-slate-500 uppercase whitespace-nowrap">
-                Dental Clinic & Implant Center
+                Dental Clinic &amp; Implant Center · Surat
               </span>
               <span className="text-[9px] sm:text-[10px] italic font-medium text-amber-700 whitespace-nowrap hidden sm:inline">
                 Your smile deserves expert care

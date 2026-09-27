@@ -184,14 +184,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAi, onBookClick }) => {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-                Apex Dental Clinic & Implant Center
+                Apex Dental Clinic Surat
                 <span className="block text-2xl sm:text-3xl lg:text-3xl font-extrabold text-amber-600 mt-1 sm:mt-2">
-                  Your Smile Deserves Expert Care
+                  &amp; Implant Center · Mota Varachha
                 </span>
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
-                Surat’s premier center for advanced orthodontic teeth alignment, invisible clear aligners, dental implants, single-sitting painless root canals, and gentle pediatric dentistry in Mota Varachha.
+                Rated #1 multi-specialty dental clinic in Mota Varachha, Surat led by Dr. Darshak Vaghani (M.D.S. Orthodontist). Advanced invisible clear aligners, dental implants, single-sitting painless root canals, and gentle pediatric dentistry.
               </p>
 
               {/* 6 Key Quality Checkpoints */}
