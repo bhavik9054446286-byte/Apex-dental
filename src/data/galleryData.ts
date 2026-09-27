@@ -25,7 +25,26 @@ export interface BeforeAfterCase {
   highlights: string[];
 }
 
+export const FEATURED_GALLERY_CASE: GalleryItem = {
+  id: 'featured-case-11-deepbite',
+  title: 'Severe Deep Overbite & Functional Occlusion Alignment',
+  category: 'orthodontics',
+  categoryLabel: 'Featured Clinical Case',
+  imageUrl: '/gallery-featured-case.jpg',
+  fallbackGradient: 'from-teal-900 to-cyan-950',
+  description: 'Clinical orthodontic correction of severe deep bite and dental arch overlap by Dr. Darshak Vaghani at Apex Dental Clinic, Mota Varachha, Surat.',
+  details: 'Comprehensive orthodontic mechanics successfully resolving 100% vertical deep bite overlap, preventing enamel attrition, leveling the dental arch, and establishing harmonious Class I functional occlusion.',
+  treatmentTag: 'Verified Smile Transformation',
+  features: [
+    '100% Deep bite overlap corrected',
+    'Relieved TMJ and enamel wear strain',
+    'Custom aesthetic braces alignment',
+    'Stable functional Class I occlusion',
+  ],
+};
+
 export const GALLERY_ITEMS: GalleryItem[] = [
+  FEATURED_GALLERY_CASE,
   {
     id: 'clinic-operatory-main',
     title: 'Apex Dental Clinic – Main Operatory & Branding',

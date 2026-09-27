@@ -6,18 +6,9 @@ import {
   X, 
   Check, 
   ArrowRight, 
-  ShieldCheck, 
-  Award, 
-  Sliders, 
-  ChevronLeft, 
-  ChevronRight,
-  Eye,
-  CheckCircle2,
-  Clock,
   Building2
 } from 'lucide-react';
-import { GALLERY_ITEMS, BEFORE_AFTER_CASES, GalleryItem, BeforeAfterCase } from '../data/galleryData';
-import { CLINIC_CONTACT } from '../data/clinicData';
+import { GALLERY_ITEMS, FEATURED_GALLERY_CASE, GalleryItem } from '../data/galleryData';
 import { RevealOnScroll } from './RevealOnScroll';
 
 interface TreatmentGalleryProps {
@@ -48,27 +39,10 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
       document.body.style.overflow = originalOverflow;
     };
   }, [selectedItem]);
-  
-  // Before & After Interactive State
-  const [activeCaseIndex, setActiveCaseIndex] = useState(0);
-  const [sliderPosition, setSliderPosition] = useState(50); // percentage 0-100
-  const [viewMode, setViewMode] = useState<'full' | 'slider'>('full');
 
   const filteredItems = activeTab === 'all' 
     ? GALLERY_ITEMS 
     : GALLERY_ITEMS.filter((item) => item.category === activeTab);
-
-  const currentCase = BEFORE_AFTER_CASES[activeCaseIndex];
-
-  const handleNextCase = () => {
-    setActiveCaseIndex((prev) => (prev + 1) % BEFORE_AFTER_CASES.length);
-    setSliderPosition(50);
-  };
-
-  const handlePrevCase = () => {
-    setActiveCaseIndex((prev) => (prev - 1 + BEFORE_AFTER_CASES.length) % BEFORE_AFTER_CASES.length);
-    setSliderPosition(50);
-  };
 
   return (
     <section id="gallery" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
@@ -126,6 +100,80 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
             <div>
               <div className="font-bold text-xs sm:text-sm text-slate-900">Hospital Sterilization</div>
               <div className="text-[11px] text-slate-500">Autoclave 100% sterile guarantee</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Top Featured Clinical Case Banner */}
+        <div className="mb-12 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-teal-800/40 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            {/* Left Case Image Showcase */}
+            <div 
+              onClick={() => setSelectedItem(FEATURED_GALLERY_CASE)}
+              className="lg:col-span-5 relative group cursor-pointer rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-black aspect-[3/4] max-h-[460px] mx-auto w-full max-w-sm lg:max-w-none"
+            >
+              <img 
+                src={FEATURED_GALLERY_CASE.imageUrl} 
+                alt={FEATURED_GALLERY_CASE.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute top-3 left-3 bg-teal-600/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-teal-200" />
+                Featured Clinical Case
+              </div>
+              <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                <span className="p-3 rounded-full bg-white/20 backdrop-blur-md text-white shadow-lg">
+                  <ZoomIn className="w-6 h-6 text-white" />
+                </span>
+                <span className="text-white text-sm font-bold">Click to Expand Case</span>
+              </div>
+            </div>
+
+            {/* Right Clinical Details */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider border border-teal-500/30">
+                <Sparkles className="w-3.5 h-3.5 text-teal-300" />
+                Dr. Darshak Vaghani · M.D.S. Orthodontist
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                {FEATURED_GALLERY_CASE.title}
+              </h3>
+
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                {FEATURED_GALLERY_CASE.details}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                {FEATURED_GALLERY_CASE.features.map((feat, i) => (
+                  <div key={i} className="flex items-center gap-2 text-xs text-slate-200">
+                    <Check className="w-4 h-4 text-teal-400 shrink-0" />
+                    <span>{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4 flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => setSelectedItem(FEATURED_GALLERY_CASE)}
+                  className="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-lg hover:shadow-teal-500/25 flex items-center gap-2 cursor-pointer"
+                >
+                  <ZoomIn className="w-4 h-4" />
+                  View High-Res Photo
+                </button>
+
+                <a
+                  href={`https://wa.me/917984677833?text=${encodeURIComponent('Hello Dr. Darshak Vaghani, I saw your featured deep bite clinical transformation photo on the Apex Dental website and would like to consult about teeth alignment.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm rounded-xl transition-all border border-white/20 flex items-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
+                  Consult Dr. Darshak on WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -213,255 +261,6 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               </div>
             </div>
           ))}
-        </div>
-        </RevealOnScroll>
-
-        {/* INTERACTIVE BEFORE & AFTER SMILE MAKEOVER SHOWCASE */}
-        <RevealOnScroll variant="fade-up" delay={150} duration={700}>
-        <div className="bg-slate-50 rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-sm">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-8">
-            <div className="space-y-2 text-center lg:text-left">
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200/60 inline-block">
-                Verified Clinical Results
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Before & After Transformations
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
-                Actual clinical photo cases treated by Dr. Darshak Vaghani at Apex Dental Clinic in Mota Varachha, Surat.
-              </p>
-            </div>
-
-            {/* Quick Case Switcher Tabs */}
-            <div className="flex items-center flex-wrap gap-1.5 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-2xs">
-              {BEFORE_AFTER_CASES.map((c, idx) => (
-                <button
-                  key={c.id}
-                  onClick={() => {
-                    setActiveCaseIndex(idx);
-                    setSliderPosition(50);
-                  }}
-                  className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    activeCaseIndex === idx
-                      ? 'bg-teal-700 text-white shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-                  }`}
-                >
-                  Case {idx + 1}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
-            {/* Before & After Comparison Viewer */}
-            <div className="lg:col-span-7 space-y-3">
-              {/* View Mode Toggle Controls */}
-              <div className="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-slate-200 text-xs">
-                <span className="font-semibold text-slate-700 flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Clinical Photo View:
-                </span>
-                <div className="flex items-center gap-1">
-                  <button
-                    onClick={() => setViewMode('full')}
-                    className={`px-2.5 py-1 rounded-md font-bold transition-all cursor-pointer text-xs ${
-                      viewMode === 'full'
-                        ? 'bg-teal-100 text-teal-900'
-                        : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    Side-by-Side Photo
-                  </button>
-                  <button
-                    onClick={() => setViewMode('slider')}
-                    className={`px-2.5 py-1 rounded-md font-bold transition-all cursor-pointer text-xs ${
-                      viewMode === 'slider'
-                        ? 'bg-teal-100 text-teal-900'
-                        : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    Interactive Slider
-                  </button>
-                </div>
-              </div>
-
-              {viewMode === 'full' ? (
-                /* Full Side-by-Side Clinical Image (Direct from user upload) */
-                <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-300 bg-slate-900 flex items-center justify-center p-2 sm:p-4 min-h-[320px]">
-                  <img
-                    src={currentCase.fullImg}
-                    alt={currentCase.title}
-                    className="max-h-[380px] w-auto max-w-full rounded-lg object-contain shadow-md"
-                  />
-                  <div className="absolute top-4 left-4 bg-slate-900/85 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/10 shadow-xs">
-                    {currentCase.beforeLabel}
-                  </div>
-                  <div className="absolute top-4 right-4 bg-emerald-700/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md border border-white/10 shadow-xs">
-                    {currentCase.afterLabel}
-                  </div>
-                </div>
-              ) : (
-                /* Interactive Split Drag Comparison */
-                <div className="relative aspect-16/10 rounded-2xl overflow-hidden shadow-lg border border-slate-300 bg-slate-900 select-none">
-                  {/* After Image (Background) */}
-                  <img
-                    src={currentCase.afterImg}
-                    alt={currentCase.afterLabel}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-
-                  {/* Before Image (Clipped by slider position) */}
-                  <div
-                    className="absolute inset-0 overflow-hidden"
-                    style={{ width: `${sliderPosition}%` }}
-                  >
-                    <img
-                      src={currentCase.beforeImg}
-                      alt={currentCase.beforeLabel}
-                      className="absolute inset-0 w-full h-full object-cover max-w-none"
-                      style={{ width: '100%', height: '100%' }}
-                    />
-                    <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md">
-                      {currentCase.beforeLabel}
-                    </div>
-                  </div>
-
-                  {/* After Label */}
-                  <div className="absolute top-3 right-3 bg-teal-800/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md">
-                    {currentCase.afterLabel}
-                  </div>
-
-                  {/* Drag Handle Divider */}
-                  <div
-                    className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-md"
-                    style={{ left: `${sliderPosition}%` }}
-                  >
-                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white text-teal-800 shadow-xl flex items-center justify-center font-bold text-xs border-2 border-teal-600">
-                      <Sliders className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
-
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={sliderPosition}
-                    onChange={(e) => setSliderPosition(Number(e.target.value))}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
-                    aria-label="Drag before and after comparison"
-                  />
-                </div>
-              )}
-
-              <div className="flex items-center justify-between text-xs text-slate-500 px-1">
-                <span>
-                  {viewMode === 'full'
-                    ? '✦ High-definition verified clinical outcome'
-                    : '◀ Slide left / right to compare transformation ▶'}
-                </span>
-                <span className="font-semibold text-teal-700">Case {activeCaseIndex + 1} of {BEFORE_AFTER_CASES.length}</span>
-              </div>
-            </div>
-
-            {/* Case Details & Booking Card */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="inline-block px-3 py-1 bg-teal-100/80 text-teal-900 rounded-full text-xs font-bold">
-                {currentCase.treatment}
-              </div>
-
-              <h4 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
-                {currentCase.title}
-              </h4>
-
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
-                <Clock className="w-4 h-4 text-teal-600" />
-                <span>Total Timeline: {currentCase.duration}</span>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                {currentCase.description}
-              </p>
-
-              {/* Case Highlights */}
-              <div className="space-y-1.5 pt-2">
-                <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Clinical Outcomes:
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-700">
-                  {currentCase.highlights.map((hl, i) => (
-                    <div key={i} className="flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>{hl}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* CTAs with Direct WhatsApp Redirection */}
-              <div className="pt-4 flex flex-col sm:flex-row gap-2.5">
-                <a
-                  href={`https://wa.me/${CLINIC_CONTACT.phoneRaw}?text=${encodeURIComponent(
-                    `Hello Dr. Darshak Vaghani, I saw the clinical result for "${currentCase.title}" (${currentCase.treatment}) on your website and would like to book a consultation.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
-                  title="Book this treatment on WhatsApp"
-                >
-                  <MessageSquare className="w-4 h-4 fill-white/20" />
-                  <span>Book on WhatsApp</span>
-                </a>
-
-                <button
-                  onClick={() => onAskAi(`Tell me about ${currentCase.treatment} and results like ${currentCase.title}`)}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-white hover:bg-teal-50 text-teal-900 font-semibold text-xs rounded-xl border border-teal-200 transition-colors cursor-pointer"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Ask AI Details</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Verified Clinical Cases Mini Grid */}
-          <div className="pt-6 border-t border-slate-200/80">
-            <div className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-4 flex items-center gap-2">
-              <Eye className="w-4 h-4 text-teal-600" />
-              <span>All {BEFORE_AFTER_CASES.length} Verified Clinical Cases (Click to view):</span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
-              {BEFORE_AFTER_CASES.map((item, idx) => (
-                <div
-                  key={item.id}
-                  onClick={() => {
-                    setActiveCaseIndex(idx);
-                    setSliderPosition(50);
-                  }}
-                  className={`p-3 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
-                    activeCaseIndex === idx
-                      ? 'bg-teal-50/70 border-teal-500 shadow-md ring-2 ring-teal-500/20'
-                      : 'bg-white border-slate-200 hover:border-slate-300 shadow-2xs hover:shadow-sm'
-                  }`}
-                >
-                  <div className="aspect-16/10 rounded-xl overflow-hidden bg-slate-900 mb-2.5 relative">
-                    <img
-                      src={item.fullImg}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-1.5 left-1.5 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                      Case {idx + 1}
-                    </div>
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-xs text-slate-900 line-clamp-1">{item.title}</h5>
-                    <p className="text-[11px] text-teal-700 font-semibold mt-0.5">{item.treatment}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
         </RevealOnScroll>
       </div>
