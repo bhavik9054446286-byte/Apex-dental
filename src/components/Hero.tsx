@@ -24,39 +24,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAi, onBookClick }) => {
 
   const heroSlides = [
     {
-      id: 'slide-reception',
-      title: 'Warm Clinic Reception & Waiting Lounge',
-      subtitle: 'Modern wooden reception desk, illuminated dental emblem, and comfortable sunny yellow patient lounge',
-      type: 'lounge',
-      imgSrc: '/clinic-photo-3-clean.jpg', // fallback image
-    },
-    {
       id: 'slide-operatory-main',
       title: 'State-of-the-Art Computerized Operatory',
       subtitle: 'Ergonomic hydraulic chair, shadowless LED surgical lighting, and hospital-grade asepsis',
-      type: 'photo',
       imgSrc: '/clinic-photo-3-clean.jpg',
     },
     {
       id: 'slide-operatory-dual',
       title: 'Dual Treatment Bays & Welcoming Atmosphere',
       subtitle: 'Comfortable family environment equipped for simultaneous gentle procedures',
-      type: 'photo',
       imgSrc: '/clinic-photo-1-clean.jpg',
     },
     {
       id: 'slide-chair-monitor',
       title: 'Digital Intraoral Scans & Live HD Display',
       subtitle: 'Real-time diagnostic clarity and low-dose computerized digital x-rays for transparent care',
-      type: 'photo',
       imgSrc: '/clinic-photo-4-clean.jpg',
     },
     {
       id: 'slide-doctor-suite',
       title: 'Dr. Darshak Vaghani Private Consultation Suite',
       subtitle: 'Specialist orthodontics, clear aligners planning, and personalized smile designing',
-      type: 'photo',
       imgSrc: '/clinic-photo-5-clean.jpg',
+    },
+    {
+      id: 'slide-advanced-setup',
+      title: 'Hospital-Grade Sterilization & Modern Infrastructure',
+      subtitle: '100% sterile instruments, autoclave protocols, and advanced dental surgical systems',
+      imgSrc: '/clinic-photo-6-clean.jpg',
     },
   ];
 
@@ -110,113 +105,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAi, onBookClick }) => {
         {/* Banner Container with Rounded Corners & Shadow */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/90 aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] bg-slate-900 select-none">
           
-          {/* SLIDE 1: High-Fidelity Clinic Reception & Waiting Lounge (Exact representation of reference image) */}
-          {currentSlide === 0 && (
-            <div className="absolute inset-0 w-full h-full">
-              {/* Photorealistic Reception Composition matching the user's uploaded reference */}
-              <div className="relative w-full h-full overflow-hidden bg-gradient-to-r from-amber-50 via-orange-50 to-stone-100 flex items-center justify-center">
-                
-                {/* Background Glass Wall with Lush Greenery Outside */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 sm:w-3/5 bg-gradient-to-b from-emerald-100/60 to-slate-200/50 overflow-hidden border-l border-white/60">
-                  <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#15803d_1px,transparent_1px)] [background-size:16px_16px]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-300/40 via-transparent to-emerald-200/30" />
-                </div>
-
-                {/* Left Illuminated Terracotta / Warm Rose Emblem Wall */}
-                <div className="absolute left-0 top-0 bottom-0 w-1/2 sm:w-2/5 bg-gradient-to-br from-[#D98A6C] via-[#C8795A] to-[#A85B3F] p-6 sm:p-10 flex flex-col justify-center text-white shadow-2xl">
-                  {/* Subtle Wall Glow Border */}
-                  <div className="absolute -inset-1 rounded-r-3xl bg-amber-300/20 blur-md pointer-events-none" />
-                  
-                  {/* Clinic Emblem on Feature Wall */}
-                  <div className="relative z-10 space-y-2">
-                    <div className="flex items-center gap-2.5">
-                      <svg className="w-12 h-12 text-amber-200 drop-shadow-md" viewBox="0 0 100 100" fill="none">
-                        <path d="M50 12C36 12 22 22 22 42C22 56 27 68 33 88C35 94 40 94 43 86C46 78 48 70 50 70C52 70 54 78 57 86C60 94 65 94 67 88C73 68 78 56 78 42C78 22 64 12 50 12Z" stroke="#FFE7BA" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" fill="#F59E0B" fillOpacity="0.15" />
-                        <path d="M32 46C38 56 62 56 68 46" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
-                      </svg>
-                      <div>
-                        <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight drop-shadow-md">
-                          Apex Dental
-                        </h2>
-                        <p className="text-[11px] sm:text-xs text-amber-200 font-semibold uppercase tracking-wider">
-                          Clinic & Implant Center
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-amber-100/90 font-medium italic pt-1">
-                      "your smile deserves expert care"
-                    </p>
-
-                    <div className="pt-3 hidden sm:block">
-                      <p className="text-xs text-white/90 font-semibold">
-                        Chief Specialist: Dr. Darshak Vaghani
-                      </p>
-                      <p className="text-[11px] text-amber-200">
-                        B.D.S., M.D.S. (Orthodontics & Dentofacial Orthopedics)
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Center Wood Reception Desk */}
-                <div className="absolute left-[28%] sm:left-[24%] bottom-0 top-[28%] w-[42%] sm:w-[38%] rounded-t-2xl bg-gradient-to-b from-[#8C522B] via-[#75411E] to-[#5C3215] border-t-8 border-[#A6673A] shadow-2xl flex flex-col justify-between p-4 z-10">
-                  <div className="w-full bg-[#FAF5EE] rounded-xl p-3 shadow-inner border border-amber-900/10 text-center">
-                    <p className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-[#75411E]">
-                      Reception & Consultation
-                    </p>
-                  </div>
-                  {/* Purple Orchid Floral Vase Element */}
-                  <div className="absolute -top-10 left-6 sm:left-10 flex items-center justify-center">
-                    <div className="w-8 h-10 sm:w-10 sm:h-12 bg-white rounded-lg shadow-lg border border-amber-200 flex items-center justify-center">
-                      <span className="text-base sm:text-lg">🪻</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Cheerful Sunny Yellow Leather Lounge Couch (Matching Screenshot) */}
-                <div className="absolute right-4 sm:right-10 bottom-0 top-[38%] w-[38%] sm:w-[32%] rounded-t-3xl bg-gradient-to-b from-[#FCD34D] via-[#F59E0B] to-[#D97706] p-4 sm:p-6 shadow-2xl border-t-8 border-[#FDE68A] flex flex-col justify-end z-10">
-                  <div className="space-y-1">
-                    <div className="inline-block px-2.5 py-1 bg-slate-900/80 rounded-md text-[10px] sm:text-xs text-amber-300 font-bold">
-                      Luxury Patient Lounge
-                    </div>
-                    <p className="text-xs sm:text-sm font-extrabold text-slate-900">
-                      Comfortable & Anxiety-Free
-                    </p>
-                    <p className="text-[11px] text-slate-800 hidden sm:block">
-                      Spacious seating with chilled waiting lounge
-                    </p>
-                  </div>
-                </div>
-
-              </div>
+          {/* Active Carousel Slide: High Resolution Real Clinic Operatories & Facilities */}
+          <div className="absolute inset-0 w-full h-full">
+            <img 
+              src={heroSlides[currentSlide].imgSrc} 
+              alt={heroSlides[currentSlide].title}
+              className="w-full h-full object-cover object-center transform scale-100 transition-transform duration-1000"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-black/30" />
+            
+            {/* Slide Caption Overlay */}
+            <div className="absolute bottom-16 sm:bottom-20 left-6 sm:left-12 right-6 sm:right-12 z-20 text-white max-w-2xl space-y-1.5">
+              <span className="inline-block px-3 py-1 rounded-md bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider">
+                Apex Dental Clinic Tour
+              </span>
+              <h3 className="text-xl sm:text-3xl font-extrabold drop-shadow-md">
+                {heroSlides[currentSlide].title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-200 drop-shadow">
+                {heroSlides[currentSlide].subtitle}
+              </p>
             </div>
-          )}
-
-          {/* SLIDES 2 to 5: High Resolution Actual Clinic Operatories & Facilities */}
-          {currentSlide > 0 && (
-            <div className="absolute inset-0 w-full h-full">
-              <img 
-                src={heroSlides[currentSlide].imgSrc} 
-                alt={heroSlides[currentSlide].title}
-                className="w-full h-full object-cover object-center transform scale-100 transition-transform duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-black/30" />
-              
-              {/* Slide Caption Overlay */}
-              <div className="absolute bottom-16 sm:bottom-20 left-6 sm:left-12 right-6 sm:right-12 z-20 text-white max-w-2xl space-y-1.5">
-                <span className="inline-block px-3 py-1 rounded-md bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider">
-                  Apex Dental Clinic Tour
-                </span>
-                <h3 className="text-xl sm:text-3xl font-extrabold drop-shadow-md">
-                  {heroSlides[currentSlide].title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-200 drop-shadow">
-                  {heroSlides[currentSlide].subtitle}
-                </p>
-              </div>
-            </div>
-          )}
+          </div>
 
           {/* Carousel Left Circular Navigation Arrow (White circular button) */}
           <button
