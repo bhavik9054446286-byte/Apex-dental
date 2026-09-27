@@ -17,6 +17,33 @@ app.use(express.json({ limit: '60mb' }));
 app.use(express.urlencoded({ extended: true, limit: '60mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Google Search Console Site Verification HTML Route
+app.get('/googlefcc0d861f17d5700.html', (_req, res) => {
+  res.setHeader('Content-Type', 'text/html; charset=UTF-8');
+  res.send('google-site-verification: googlefcc0d861f17d5700.html');
+});
+
+// Search Engine Sitemap & Robots Routes
+app.get('/sitemap.xml', (_req, res) => {
+  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    res.setHeader('Content-Type', 'application/xml');
+    res.sendFile(sitemapPath);
+  } else {
+    res.status(404).send('Not found');
+  }
+});
+
+app.get('/robots.txt', (_req, res) => {
+  const robotsPath = path.join(__dirname, 'public', 'robots.txt');
+  if (fs.existsSync(robotsPath)) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.sendFile(robotsPath);
+  } else {
+    res.send('User-agent: *\nAllow: /\n');
+  }
+});
+
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
   httpOptions: {
