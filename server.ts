@@ -24,14 +24,38 @@ app.get(['/googlefcc0d861f17d5700.html', '/googlefcc0d861f17d5700'], (_req, res)
 });
 
 // Search Engine Sitemap & Robots Routes
-app.get(['/sitemap.xml', '/sitemaps.xml'], (_req, res) => {
-  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
-  if (fs.existsSync(sitemapPath)) {
-    res.setHeader('Content-Type', 'application/xml; charset=UTF-8');
-    res.sendFile(sitemapPath);
-  } else {
-    res.status(404).send('Not found');
-  }
+app.get(['/sitemap.xml', '/sitemaps.xml'], (req, res) => {
+  const host = (req.headers['x-forwarded-host'] as string) || req.headers.host || 'ais-pre-qyl7ee6j5jcmbg3edgbt44-278354127621.asia-east1.run.app';
+  const proto = (req.headers['x-forwarded-proto'] as string) || (req.secure ? 'https' : 'https');
+  const cleanHost = host.includes('localhost') ? host : host.split(':')[0];
+  const baseUrl = `${proto}://${cleanHost}`;
+
+  const pages = [
+    { path: '', priority: '1.0', changefreq: 'daily' },
+    { path: '/services', priority: '0.9', changefreq: 'weekly' },
+    { path: '/doctor', priority: '0.9', changefreq: 'weekly' },
+    { path: '/gallery', priority: '0.8', changefreq: 'weekly' },
+    { path: '/reviews', priority: '0.8', changefreq: 'weekly' },
+    { path: '/timings', priority: '0.8', changefreq: 'monthly' },
+    { path: '/faq', priority: '0.8', changefreq: 'monthly' },
+  ];
+
+  const today = new Date().toISOString().split('T')[0];
+
+  const xmlEntries = pages.map(p => `  <url>
+    <loc>${baseUrl}${p.path}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`).join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${xmlEntries}
+</urlset>`;
+
+  res.setHeader('Content-Type', 'application/xml; charset=UTF-8');
+  res.send(xml);
 });
 
 app.get('/robots.txt', (_req, res) => {

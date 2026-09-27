@@ -33,6 +33,31 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isAiModalOpen]);
 
+  // Support clean path routing for SEO & Google Bots (e.g. /services, /doctor, /gallery, etc.)
+  useEffect(() => {
+    const cleanPath = window.location.pathname.replace(/^\//, '').toLowerCase();
+    if (cleanPath) {
+      const sectionMap: Record<string, string> = {
+        'services': 'services',
+        'doctor': 'doctor',
+        'gallery': 'gallery',
+        'reviews': 'reviews',
+        'timings': 'timings',
+        'faq': 'faq',
+        'faqs': 'faq',
+        'appointment': 'services',
+        'contact': 'timings'
+      };
+      const targetId = sectionMap[cleanPath] || cleanPath;
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        setTimeout(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+  }, []);
+
   // Direct WhatsApp booking redirection
   const handleBookService = (serviceName?: string) => {
     const text = serviceName
