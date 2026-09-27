@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: true, limit: '60mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Google Search Console Site Verification HTML Route
-app.get('/googlefcc0d861f17d5700.html', (_req, res) => {
+app.get(['/googlefcc0d861f17d5700.html', '/googlefcc0d861f17d5700'], (_req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=UTF-8');
-  res.send('google-site-verification: googlefcc0d861f17d5700.html');
+  res.send('google-site-verification: googlefcc0d861f17d5700.html\n');
 });
 
 // Search Engine Sitemap & Robots Routes
