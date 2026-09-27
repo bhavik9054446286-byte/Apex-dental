@@ -30,16 +30,16 @@ export const Footer: React.FC<FooterProps> = () => {
               />
               <div>
                 <span className="text-xl font-black text-white tracking-tight uppercase">
-                  Apex Dental <span className="text-teal-400">Clinic</span>
+                  Apex Dental <span className="text-amber-400">Clinic</span>
                 </span>
-                <span className="block text-xs text-teal-400 font-semibold">
+                <span className="block text-xs text-amber-400 font-semibold">
                   Orthodontics & Advanced Dentistry · Surat
                 </span>
               </div>
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Led by <strong className="text-slate-200 font-bold">Dr. Darshak Vaghani</strong> (B.D.S., M.D.S. Orthodontist), <strong className="text-teal-300">Apex Dental Clinic</strong> provides comprehensive dental care, Invisalign clear aligners, dental implants, single-sitting root canals, and pediatric treatments in Mota Varachha, Surat.
+              Led by <strong className="text-slate-200 font-bold">Dr. Darshak Vaghani</strong> (B.D.S., M.D.S. Orthodontist), <strong className="text-amber-300">Apex Dental Clinic</strong> provides comprehensive dental care, Invisalign clear aligners, dental implants, single-sitting root canals, and pediatric treatments in Mota Varachha, Surat.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-amber-400 pt-1">
@@ -60,47 +60,47 @@ export const Footer: React.FC<FooterProps> = () => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#services" className="hover:text-teal-400 transition-colors">
+                <a href="#services" className="hover:text-amber-400 transition-colors">
                   All 24 Services
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-teal-400 transition-colors">
+                <a href="#gallery" className="hover:text-amber-400 transition-colors">
                   Treatment Gallery & Tour
                 </a>
               </li>
               <li>
-                <a href="#videos" className="hover:text-teal-400 transition-colors">
+                <a href="#videos" className="hover:text-amber-400 transition-colors">
                   Clinical Video Reels
                 </a>
               </li>
               <li>
-                <a href="#doctor" className="hover:text-teal-400 transition-colors">
+                <a href="#doctor" className="hover:text-amber-400 transition-colors">
                   Dr. Darshak Vaghani
                 </a>
               </li>
               <li>
-                <a href="#booking" className="hover:text-teal-400 transition-colors">
+                <a href="#booking" className="hover:text-amber-400 transition-colors">
                   WhatsApp Booking
                 </a>
               </li>
               <li>
-                <a href="#quiz" className="hover:text-teal-400 transition-colors">
+                <a href="#quiz" className="hover:text-amber-400 transition-colors">
                   Smile Advisor Quiz
                 </a>
               </li>
               <li>
-                <a href="#timings" className="hover:text-teal-400 transition-colors">
+                <a href="#timings" className="hover:text-amber-400 transition-colors">
                   Clinic Timings
                 </a>
               </li>
               <li>
-                <a href="#reviews" className="hover:text-teal-400 transition-colors">
+                <a href="#reviews" className="hover:text-amber-400 transition-colors">
                   Patient Reviews
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-teal-400 transition-colors">
+                <a href="#faq" className="hover:text-amber-400 transition-colors">
                   FAQs
                 </a>
               </li>
@@ -132,7 +132,7 @@ export const Footer: React.FC<FooterProps> = () => {
 
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   2nd Floor, near Mahadev Chowk, Opp. Dharmnandan Row House Society, Mota Varachha, Surat, Gujarat
                 </span>
@@ -190,7 +190,7 @@ export const Footer: React.FC<FooterProps> = () => {
         {/* Agency Attribution */}
         <div className="mt-6 pt-4 border-t border-slate-800/80 text-center">
           <p className="text-[11px] text-slate-400 font-medium tracking-wide">
-            designed by <span className="text-slate-300 hover:text-teal-400 transition-colors">PixelBite Web Studio</span>
+            designed by <span className="text-slate-300 hover:text-amber-400 transition-colors">PixelBite Web Studio</span>
           </p>
         </div>
       </div>

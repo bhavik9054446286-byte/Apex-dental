@@ -31,18 +31,18 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
             <RevealOnScroll variant="fade-right" duration={700}>
             <div className="relative">
               {/* Doctor Avatar / Visual Card */}
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-teal-800 via-teal-900 to-slate-950 p-8 sm:p-10 text-white shadow-2xl border border-teal-700/50">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0F1E36] via-[#16243E] to-[#0A1424] p-8 sm:p-10 text-white shadow-2xl border border-amber-500/30">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
                 
                 <div className="flex flex-col items-center text-center space-y-4">
                   {/* Doctor Portrait Image - Square Shape & HD Half-Body */}
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 aspect-square rounded-2xl overflow-hidden border-4 border-teal-400/90 shadow-2xl relative bg-slate-900 ring-4 ring-teal-500/25 group">
+                  <div className="w-48 h-48 sm:w-56 sm:h-56 aspect-square rounded-2xl overflow-hidden border-4 border-amber-400 shadow-2xl relative bg-slate-900 ring-4 ring-amber-500/20 group">
                     <img
                       src="/dr-darshak-square.jpg"
                       alt="Dr. Darshak Vaghani (Orthodontist) - Apex Dental Clinic"
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-slate-950/85 backdrop-blur-xs text-[10px] font-black text-cyan-300 border border-teal-500/40 tracking-wider shadow-xs">
+                    <div className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-slate-950/85 backdrop-blur-xs text-[10px] font-black text-amber-300 border border-amber-500/40 tracking-wider shadow-xs">
                       HD
                     </div>
                   </div>
@@ -51,12 +51,12 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
                     <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                       Dr. Darshak Vaghani
                     </h3>
-                    <div className="inline-block mt-1 px-3 py-1 bg-teal-500/20 border border-teal-400/30 rounded-full text-xs font-semibold text-cyan-200">
+                    <div className="inline-block mt-1 px-3 py-1 bg-amber-500/20 border border-amber-400/30 rounded-full text-xs font-semibold text-cyan-200">
                       B.D.S., M.D.S. (Orthodontist)
                     </div>
                   </div>
 
-                  <p className="text-xs text-teal-100/90 leading-relaxed max-w-sm">
+                  <p className="text-xs text-slate-200 leading-relaxed max-w-sm">
                     Master of Dental Surgery (M.D.S.) in Orthodontics & Dentofacial Orthopedics. Dedicated to gentle, patient-first clinical excellence in Surat.
                   </p>
 
@@ -68,19 +68,19 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
                       ))}
                     </div>
                     <span className="font-bold text-white">5.0 / 5.0</span>
-                    <span className="text-teal-200 text-[11px]">Google Reviews</span>
+                    <span className="text-amber-300 text-[11px]">Google Reviews</span>
                   </div>
                 </div>
 
                 {/* Quick Doctor Stats Row */}
-                <div className="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-teal-800 text-center text-xs">
+                <div className="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-slate-800 text-center text-xs">
                   <div>
                     <div className="text-xl font-black text-white">100%</div>
-                    <div className="text-[11px] text-teal-300">Painless Care Protocol</div>
+                    <div className="text-[11px] text-amber-400">Painless Care Protocol</div>
                   </div>
                   <div>
                     <div className="text-xl font-black text-white">Surat</div>
-                    <div className="text-[11px] text-teal-300">Mota Varachha Clinic</div>
+                    <div className="text-[11px] text-amber-400">Mota Varachha Clinic</div>
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
           <div className="lg:col-span-7 space-y-6">
             <RevealOnScroll variant="fade-left" delay={150} duration={700}>
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+              <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
                 Lead Specialist & Dental Surgeon
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
@@ -101,7 +101,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm text-slate-600 font-medium mt-1">
                 <span>B.D.S.</span>
                 <span className="text-slate-300">·</span>
-                <span className="text-teal-700 font-semibold">M.D.S. (Orthodontics & Dentofacial Orthopedics)</span>
+                <span className="text-amber-700 font-semibold">M.D.S. (Orthodontics & Dentofacial Orthopedics)</span>
               </div>
             </div>
 
@@ -118,7 +118,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="p-3.5 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
                   <div className="flex items-center gap-2 font-bold text-sm text-slate-900">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
+                    <CheckCircle className="w-4 h-4 text-amber-600" />
                     <span>Invisalign & Clear Aligners</span>
                   </div>
                   <p className="text-xs text-slate-600">
@@ -128,7 +128,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
 
                 <div className="p-3.5 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
                   <div className="flex items-center gap-2 font-bold text-sm text-slate-900">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
+                    <CheckCircle className="w-4 h-4 text-amber-600" />
                     <span>Pediatric Growth Modification</span>
                   </div>
                   <p className="text-xs text-slate-600">
@@ -138,7 +138,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
 
                 <div className="p-3.5 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
                   <div className="flex items-center gap-2 font-bold text-sm text-slate-900">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
+                    <CheckCircle className="w-4 h-4 text-amber-600" />
                     <span>Dental Implants & Overdentures</span>
                   </div>
                   <p className="text-xs text-slate-600">
@@ -148,7 +148,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
 
                 <div className="p-3.5 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-1">
                   <div className="flex items-center gap-2 font-bold text-sm text-slate-900">
-                    <CheckCircle className="w-4 h-4 text-teal-600" />
+                    <CheckCircle className="w-4 h-4 text-amber-600" />
                     <span>Single-Sitting Painless Root Canals</span>
                   </div>
                   <p className="text-xs text-slate-600">
@@ -159,11 +159,11 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
             </div>
 
             {/* Quote / Philosophy Box */}
-            <div className="p-4 bg-teal-50 rounded-xl border border-teal-200/80 flex items-start gap-3">
-              <HeartHandshake className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
-              <p className="text-xs sm:text-sm text-teal-900 italic leading-relaxed">
+            <div className="p-4 bg-amber-50 rounded-xl border border-amber-200/80 flex items-start gap-3">
+              <HeartHandshake className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+              <p className="text-xs sm:text-sm text-amber-950 italic leading-relaxed">
                 "Our clinic philosophy is simple: Treat every patient like family with absolute gentleness, utilize high-grade digital diagnostics, and never compromise on hygiene and sterilization."
-                <span className="block mt-1 font-bold not-italic text-teal-950 text-xs">— Dr. Darshak Vaghani</span>
+                <span className="block mt-1 font-bold not-italic text-amber-900 text-xs">— Dr. Darshak Vaghani</span>
               </p>
             </div>
 
@@ -223,9 +223,9 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ onBookClick, onOpe
 
               <button
                 onClick={onOpenAi}
-                className="inline-flex items-center gap-2 px-4 py-3 text-sm font-semibold text-teal-900 bg-white hover:bg-teal-50 border border-teal-200 rounded-xl shadow-2xs transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 text-sm font-semibold text-amber-950 bg-white hover:bg-amber-50 border border-amber-200 rounded-xl shadow-2xs transition-colors cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-teal-600" />
+                <Sparkles className="w-4 h-4 text-amber-600" />
                 <span>Ask AI About Doctor's Experience</span>
               </button>
             </div>

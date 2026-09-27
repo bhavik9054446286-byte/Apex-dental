@@ -86,9 +86,9 @@ export const FloatingWhatsAppWidget: React.FC<FloatingWhatsAppWidgetProps> = ({
                 setShowQuickOptions(false);
                 onOpenAi();
               }}
-              className="text-teal-700 hover:text-teal-800 font-bold text-[11px] flex items-center gap-1 cursor-pointer"
+              className="text-amber-700 hover:text-amber-800 font-bold text-[11px] flex items-center gap-1 cursor-pointer"
             >
-              <Sparkles className="w-3 h-3 text-teal-600" />
+              <Sparkles className="w-3 h-3 text-amber-600" />
               Ask AI
             </button>
           </div>
@@ -110,10 +110,10 @@ export const FloatingWhatsAppWidget: React.FC<FloatingWhatsAppWidgetProps> = ({
         {/* AI Guide Bubble */}
         <button
           onClick={onOpenAi}
-          className="hidden sm:flex items-center gap-1.5 px-3 py-2.5 bg-white text-teal-900 rounded-full shadow-lg border border-teal-200 hover:bg-teal-50 text-xs font-bold transition-all cursor-pointer hover:scale-105"
+          className="hidden sm:flex items-center gap-1.5 px-3 py-2.5 bg-white text-amber-900 rounded-full shadow-lg border border-amber-200 hover:bg-amber-50 text-xs font-bold transition-all cursor-pointer hover:scale-105"
           title="Ask Dental AI Guide"
         >
-          <Sparkles className="w-4 h-4 text-teal-600 animate-pulse" />
+          <Sparkles className="w-4 h-4 text-amber-600 animate-pulse" />
           <span>Ask Dental AI</span>
         </button>
 

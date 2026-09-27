@@ -30,21 +30,162 @@ export const CLINIC_TIMINGS: DayTiming[] = [
 
 export const ALL_SERVICES: DentalService[] = [
   {
+    id: 'root-canals',
+    name: 'Root Canal Treatment',
+    category: 'surgery',
+    popular: true,
+    imageUrl: '/service-root-canal-official.webp',
+    shortDesc: 'When a tooth is deeply infected or causing persistent pain, a root canal treatment helps preserve it rather than remove it.',
+    fullDesc: 'Modern single-sitting rotary endodontics to eliminate toothache gently and efficiently. We carefully cleanse infected dental pulp, disinfect root canals with digital apex locators, and hermetically seal the tooth to preserve your natural smile for a lifetime.',
+    duration: '45 to 60 minutes',
+    idealFor: 'Severe tooth pain, sensitivity to hot/cold, deep decay, or abscesses.',
+    benefits: ['Preserves your natural tooth', 'Immediate relief from deep infection', 'Single-sitting painless option', 'Digital apex precision']
+  },
+  {
+    id: 'dental-implants',
+    name: 'Dental Implants',
+    category: 'implants',
+    popular: true,
+    imageUrl: '/service-dental-implants-official.webp',
+    shortDesc: 'Replace missing teeth with a permanent, natural-looking solution that lets you smile, eat, and speak with confidence.',
+    fullDesc: 'The gold standard in tooth replacement. Medical-grade titanium implant roots integrate securely with your jawbone, restoring 100% chewing efficiency, halting bone loss, and providing a lifelike aesthetic foundation.',
+    duration: '3 to 6 months healing & crown placement',
+    idealFor: 'Patients missing one or multiple teeth seeking a lifetime permanent solution.',
+    benefits: ['Lifetime durability with proper care', 'Preserves jawbone density & contours', 'No reduction of adjacent teeth', '100% natural chewing strength']
+  },
+  {
+    id: 'implant-supported-dentures',
+    name: 'Implant Supported Dentures',
+    category: 'implants',
+    popular: true,
+    imageUrl: '/service-implant-dentures-official.webp',
+    shortDesc: 'Enjoy a secure, comfortable smile with dentures designed for enhanced stability and everyday confidence.',
+    fullDesc: 'Say goodbye to loose, slipping false teeth and messy adhesives. Implant-supported overdentures snap firmly onto titanium implants in your jaw, delivering unwavering stability, powerful biting capability, and renewed youthful confidence.',
+    duration: '2 to 4 months',
+    idealFor: 'Individuals with loose conventional dentures or complete tooth loss.',
+    benefits: ['Zero slipping, clicking, or shifting', 'Enhanced taste & palate freedom', 'Greatly improved chewing power', 'Restores natural facial fullness']
+  },
+  {
+    id: 'removable-dentures',
+    name: 'Removable Dentures & Prosthetics',
+    category: 'implants',
+    popular: true,
+    imageUrl: '/service-removable-dentures-official.webp',
+    shortDesc: 'Custom-crafted complete and partial removable dentures engineered for optimal comfort, natural appearance, and clear speech.',
+    fullDesc: 'Precision-fitted conventional and flexible dentures that restore your chewing function and natural facial contours comfortably, tailored to your exact bite and aesthetic smile profile.',
+    duration: '3 to 4 appointments',
+    idealFor: 'Patients with multiple missing teeth seeking a reliable, time-tested restorative solution.',
+    benefits: ['Comfortable precision fit', 'Restores natural facial fullness', 'High-grade durable acrylic', 'Affordable tooth restoration']
+  },
+  {
+    id: 'teeth-cleaning',
+    name: 'Teeth Cleaning & Prevention',
+    category: 'general',
+    popular: true,
+    imageUrl: '/service-teeth-cleaning.jpg',
+    shortDesc: 'Professional ultrasonic cleaning and plaque removal to prevent gum infections, eliminate bad breath, and protect enamel.',
+    fullDesc: 'Gentle ultrasonic scaling dislodges stubborn calculus and bacterial biofilm from hard-to-reach pockets, followed by smooth prophylactic polishing for a sparkling clean, fresh mouth.',
+    duration: '30 to 45 minutes',
+    idealFor: 'Routine preventive care every 6 months to maintain pristine oral health.',
+    benefits: ['Removes tough tartar & tea stains', 'Eliminates persistent bad breath', 'Protects against gingivitis & bone loss', 'Smoothens tooth enamel']
+  },
+  {
     id: 'invisalign-aligners',
-    name: 'Invisalign and Clear aligners',
+    name: 'Clear Aligners & Orthodontics',
     category: 'orthodontics',
     popular: true,
-    shortDesc: 'Discreet, removable custom transparent aligners for perfectly straight teeth without metallic brackets.',
-    fullDesc: 'Custom-designed digital transparent aligners created using high-resolution 3D intraoral scans. Under Dr. Darshak Vaghani’s orthodontic expertise, clear aligners gently shift your teeth with near-invisible precision, zero dietary restrictions, and comfortable daily wear.',
+    imageUrl: '/service-clear-aligners.jpg',
+    shortDesc: 'Discreet transparent aligners and braces designed by Dr. Darshak Vaghani (M.D.S.) for a straighter, confident smile.',
+    fullDesc: 'Custom-engineered digital clear aligners and modern aesthetic braces crafted with 3D intraoral scans. Gently moves teeth with millimeter precision, offering zero dietary restrictions and invisible comfort.',
     duration: '6 to 18 months',
-    idealFor: 'Teens and adults looking for virtually invisible teeth straightening.',
-    benefits: ['100% Removable for eating & brushing', 'Virtually invisible look', 'Fewer clinic check-in visits', 'Custom 3D computerized staging']
+    idealFor: 'Teens and adults looking for discreet, effective teeth alignment.',
+    benefits: ['100% Removable for eating & brushing', 'Virtually invisible aesthetics', 'M.D.S. Orthodontist supervision', 'Fewer clinic check-in visits']
+  },
+  {
+    id: 'fillings-sealants',
+    name: 'Tooth Colored Fillings',
+    category: 'general',
+    popular: true,
+    imageUrl: '/service-fillings.jpg',
+    shortDesc: 'Durable, shade-matched composite restorations to repair cavities, restore damaged enamel, and preserve natural appearance.',
+    fullDesc: 'Biomimetic tooth-colored composite resins that bond directly to your tooth structure, invisibly fixing cavities and chips without dark amalgam or mercury.',
+    duration: '30 minutes',
+    idealFor: 'Cavities, chipped tooth edges, and worn enamel.',
+    benefits: ['Zero metal or mercury', 'Exact shade matching', 'Strong adhesive micro-bonding', 'Preserves natural healthy tooth']
+  },
+  {
+    id: 'crown-bridges',
+    name: 'Crown and Bridges',
+    category: 'implants',
+    imageUrl: '/service-crown-bridges.jpg',
+    shortDesc: 'High-strength Zirconia, E-Max, and ceramic crowns to restore broken, weakened, or missing teeth seamlessly.',
+    fullDesc: 'Custom-crafted CAD/CAM crowns and bridges reinforce compromised teeth after root canal therapy or bridge the gap of missing teeth with unmatched fracture resistance and aesthetic beauty.',
+    duration: '2 appointments (3-5 days turnaround)',
+    idealFor: 'Fractured teeth, post-root canal protection, or bridging missing teeth.',
+    benefits: ['CAD/CAM computerized precision', 'High fracture resistance', 'Translucent lifelike ceramic shades', 'Full chewing force restoration']
+  },
+  {
+    id: 'teeth-whitening',
+    name: 'Teeth Whitening',
+    category: 'cosmetic',
+    popular: true,
+    imageUrl: '/service-teeth-whitening.jpg',
+    shortDesc: 'Professional in-clinic chairside bleaching lifting stubborn coffee and tea stains by 5–8 shades in a single session.',
+    fullDesc: 'Medical-grade bleaching under controlled clinical supervision. Quickly and safely brightens dull, yellowed teeth while protecting delicate enamel with anti-sensitivity formulation.',
+    duration: '45 to 60 minutes',
+    idealFor: 'Stained or discolored teeth before weddings, events, or smile rejuvenation.',
+    benefits: ['5-8 shades whiter in 1 visit', 'Enamel-safe clinical formula', 'Low sensitivity guarantee', 'Instant radiant confidence']
+  },
+  {
+    id: 'pediatric-dental-services',
+    name: 'Pediatric Dental Services',
+    category: 'pediatric',
+    imageUrl: '/service-pediatric.jpg',
+    shortDesc: 'Gentle, child-friendly oral health care, painless cavity treatments, and preventive sealants in a cheerful setting.',
+    fullDesc: 'Our friendly team makes dental visits fear-free and enjoyable for children. Includes painless cavity fillings, pit & fissure sealants, fluoride treatments, and habit-breaking guidance.',
+    duration: '30 to 45 minutes',
+    idealFor: 'Toddlers, children, and adolescents needing gentle, compassionate dental care.',
+    benefits: ['Child-friendly relaxed environment', 'Prevents childhood decay & cavities', 'Habit-correction guidance', 'Painless gentle techniques']
+  },
+  {
+    id: 'veneers-crowns',
+    name: 'Veneers & Cosmetic Crowns',
+    category: 'cosmetic',
+    imageUrl: '/service-veneers.jpg',
+    shortDesc: 'Ultra-thin porcelain laminates to conceal chips, gaps, and discolorations for a Hollywood smile makeover.',
+    fullDesc: 'Custom handcrafted porcelain veneers that mask imperfections, close uneven gaps, and achieve balanced smile symmetry with minimal tooth reduction.',
+    duration: '2 to 3 appointments',
+    idealFor: 'Patients seeking Hollywood smile symmetry, gap closure, and permanent brightness.',
+    benefits: ['Natural translucency & shine', 'Stain-resistant porcelain', 'Minimal tooth preparation', 'Customized smile design']
+  },
+  {
+    id: 'gingivitis-periodontitis',
+    name: 'Treatment of Gingivitis & Periodontitis',
+    category: 'periodontal',
+    popular: true,
+    imageUrl: '/service-teeth-cleaning.jpg',
+    shortDesc: 'Advanced deep cleaning, ultrasonic scaling, and gum pocket therapy for bleeding and swollen gums.',
+    fullDesc: 'Comprehensive periodontal therapy to halt gum recession, stop bleeding, eliminate deep-seated tartar, and preserve jawbone stability.',
+    duration: '30 to 60 minutes',
+    idealFor: 'Bleeding gums when brushing, red swollen gums, halitosis, and mobile teeth.',
+    benefits: ['Stops bleeding and swelling', 'Eliminates chronic bad breath', 'Protects jawbone from bone loss', 'Restores firm, pink, healthy gums']
+  },
+  {
+    id: 'extractions',
+    name: 'Oral Surgery & Extractions',
+    category: 'surgery',
+    imageUrl: '/service-surgery.jpg',
+    shortDesc: 'Gentle, minimally traumatic tooth removals including impacted wisdom teeth under local anesthesia.',
+    fullDesc: 'When a tooth is non-restorable or wisdom teeth cause severe crowding and pain, our gentle extraction protocol minimizes tissue trauma for rapid recovery and minimal swelling.',
+    duration: '20 to 40 minutes',
+    idealFor: 'Severely broken teeth, advanced periodontitis, or impacted wisdom teeth.',
+    benefits: ['Completely painless local anesthesia', 'Minimally traumatic technique', 'Detailed post-op comfort care', 'Swift recovery timeline']
   },
   {
     id: 'orthodontic-growth',
-    name: 'Orthodontic treatment and growth modification',
+    name: 'Orthodontic Growth Modification',
     category: 'orthodontics',
-    popular: true,
+    imageUrl: '/service-clear-aligners.jpg',
     shortDesc: 'Early jaw guidance for children & teens, plus comprehensive braces for all age groups.',
     fullDesc: 'As an M.D.S. Orthodontist, Dr. Darshak Vaghani specializes in growth modification appliances for developing children to guide jaw relationships, prevent severe crowding, alongside traditional metal, ceramic, and self-ligating braces.',
     duration: '12 to 24 months',
@@ -52,134 +193,10 @@ export const ALL_SERVICES: DentalService[] = [
     benefits: ['Early correction of jaw imbalances', 'Prevents future surgical needs', 'Enhances facial aesthetics & profile', 'Customized appliance therapy']
   },
   {
-    id: 'dental-implants',
-    name: 'Dental implants',
-    category: 'implants',
-    popular: true,
-    shortDesc: 'Permanent, titanium tooth roots topped with lifelike ceramic crowns for missing teeth.',
-    fullDesc: 'The gold standard in tooth replacement. Dental implants integrate securely with your jawbone, restoring 100% chewing efficiency, stopping bone loss, and mimicking the exact aesthetics of natural teeth.',
-    duration: '3 to 6 months total healing & crown placement',
-    idealFor: 'Patients missing one or multiple teeth seeking a lifetime permanent solution.',
-    benefits: ['Lifetime durability with proper care', 'Preserves jawbone density', 'No damage to adjacent teeth', 'Natural look and chewing feel']
-  },
-  {
-    id: 'root-canals',
-    name: 'Root canals',
-    category: 'surgery',
-    popular: true,
-    shortDesc: 'Painless single-sitting rotary endodontics to save badly infected or aching teeth.',
-    fullDesc: 'Modern rotary endodontics eliminates toothache gently and efficiently. We carefully cleanse infected dental pulp, disinfect the root canals with apex locators, and hermetically seal the tooth to preserve your natural smile.',
-    duration: '45 to 60 minutes per sitting',
-    idealFor: 'Severe tooth pain, sensitivity to hot/cold, deep decay, or abscesses.',
-    benefits: ['Saves your natural tooth', 'Immediate relief from severe pain', 'Single-sitting option available', 'Digital apex precision']
-  },
-  {
-    id: 'denture-implant-overdenture',
-    name: 'Denture and implant overdenture',
-    category: 'implants',
-    popular: true,
-    shortDesc: 'Implant-supported stable overdentures that eliminate loose, slipping false teeth.',
-    fullDesc: 'Say goodbye to loose dentures and messy adhesives. Implant overdentures securely snap onto 2 or 4 titanium implants in your jaw, delivering rock-solid stability, improved chewing power, and youthful facial support.',
-    duration: '2 to 4 months',
-    idealFor: 'Individuals with loose conventional dentures or complete tooth loss.',
-    benefits: ['Zero slipping or clicking', 'Enhanced taste & roof-of-mouth freedom', 'Drastically improved chewing power', 'Boosted speech clarity & confidence']
-  },
-  {
-    id: 'teeth-whitening',
-    name: 'Teeth whitening',
-    category: 'cosmetic',
-    popular: true,
-    shortDesc: 'Professional in-clinic chairside bleaching and take-home systems for a radiant smile.',
-    fullDesc: 'Safely brighten your teeth by up to 5-8 shades in just a single 45-minute clinical session. Our medical-grade whitening lifts stubborn coffee, tea, and aging stains with specialized enamel-safe formulations.',
-    duration: '45 to 60 minutes',
-    idealFor: 'Stained, yellowed, or discolored teeth before weddings, events, or smile renewal.',
-    benefits: ['Instantly noticeable brightness', 'Enamel-safe clinically monitored formula', 'Low sensitivity guarantee', 'Long-lasting radiant results']
-  },
-  {
-    id: 'crown-bridges',
-    name: 'Crown and bridges',
-    category: 'implants',
-    shortDesc: 'High-strength Zirconia, E-Max, and ceramic crowns to restore broken or missing teeth.',
-    fullDesc: 'Custom-crafted dental crowns reinforce cracked, weakened, or root-canal-treated teeth, while dental bridges span gaps created by missing teeth for a smooth, cohesive bite.',
-    duration: '2 appointments (3-5 days turnaround)',
-    idealFor: 'Cracked teeth, post-root canal protection, or bridging 1-2 missing teeth.',
-    benefits: ['Computer-milled CAD/CAM precision', 'High fracture resistance', 'Exact shade matching', 'Restores full biting force']
-  },
-  {
-    id: 'veneers-crowns',
-    name: 'Veneers & crowns',
-    category: 'cosmetic',
-    shortDesc: 'Ultra-thin porcelain laminates for Hollywood smile makeovers and chipped teeth.',
-    fullDesc: 'Porcelain and composite veneers conceal chipped edges, gaps between teeth, permanent discolorations, and slight misalignments with minimal enamel preparation.',
-    duration: '2 to 3 appointments',
-    idealFor: 'Patients seeking a harmonious, symmetry-aligned dream smile makeover.',
-    benefits: ['Natural translucency and luster', 'Stain-resistant porcelain', 'Minimal tooth reduction', 'Customized tooth contours']
-  },
-  {
-    id: 'gingivitis-periodontitis',
-    name: 'Treatment of gingivitis and periodontitis',
-    category: 'periodontal',
-    popular: true,
-    shortDesc: 'Advanced deep cleaning, ultrasonic scaling, and gum pocket therapy for bleeding gums.',
-    fullDesc: 'Healthy gums are the foundation of your teeth. We provide ultrasonic tartar removal, subgingival scaling, root planing, and antimicrobial irrigation to stop gum bleeding, bad breath, and bone loss.',
-    duration: '30 to 60 minutes',
-    idealFor: 'Bleeding gums when brushing, red swollen gums, halitosis, and mobile teeth.',
-    benefits: ['Stops bleeding and swelling', 'Eliminates stubborn bad breath', 'Protects jawbone from deterioration', 'Freshens mouth ecosystem']
-  },
-  {
-    id: 'pediatric-dental-services',
-    name: 'Pediatric dental services',
-    category: 'pediatric',
-    shortDesc: 'Gentle, child-friendly oral health care, cavity fillings, and preventive sealants.',
-    fullDesc: 'We make visits enjoyable and fearless for young champions. Services include gentle cavity care, pit & fissure sealants, fluoride treatments, and habit-breaking appliances (for thumb sucking or tongue thrusting).',
-    duration: '30 to 45 minutes',
-    idealFor: 'Toddlers, kids, and adolescents needing fear-free dental care.',
-    benefits: ['Friendly and cheerful environment', 'Prevents early childhood cavities', 'Habit-correction guidance', 'Painless gentle techniques']
-  },
-  {
-    id: 'paediatrics',
-    name: 'Paediatrics',
-    category: 'pediatric',
-    shortDesc: 'Comprehensive preventive care, fluoride varnish, and early orthodontic guidance for kids.',
-    fullDesc: 'Focuses on infant and child oral growth, monitoring tooth eruption stages, and preventing dental crowding through early intervention and education.',
-    duration: '30 minutes',
-    idealFor: 'Children of all ages for routine monitoring and cavity-proofing.',
-    benefits: ['Gentle preventive checkups', 'Fluoride enamel strengthening', 'Early orthodontic interception', 'Parental oral care coaching']
-  },
-  {
-    id: 'check-ups',
-    name: 'Check-ups',
-    category: 'general',
-    shortDesc: 'Comprehensive oral examination, intraoral camera screening, and dental evaluation.',
-    fullDesc: 'Detailed inspection of teeth, gums, tongue, bite alignment, and oral tissues using modern intraoral visualization to catch tiny concerns before they turn into costly problems.',
-    duration: '20 to 30 minutes',
-    idealFor: 'Everyone every 6 months for proactive preventive health.',
-    benefits: ['Early problem detection', 'Intraoral camera view for patients', 'Personalized treatment roadmap', 'Oral cancer screening']
-  },
-  {
-    id: 'teeth-cleaning',
-    name: 'Teeth cleaning',
-    category: 'general',
-    shortDesc: 'Professional ultrasonic scaling and polishing to remove plaque, calculus, and stains.',
-    fullDesc: 'Gentle ultrasonic vibrations dislodge hard tartar and bacterial biofilm from hard-to-reach crevices, followed by smooth prophylactic polishing for glassy-smooth, fresh teeth.',
-    duration: '30 to 45 minutes',
-    idealFor: 'Routine oral hygiene maintenance every 6 months.',
-    benefits: ['Removes tough tartar & tea/tobacco stains', 'Fresh clean breath', 'Smoothens tooth surfaces', 'Prevents cavities and gum disease']
-  },
-  {
-    id: 'fillings-sealants',
-    name: 'Fillings and sealants',
-    category: 'general',
-    shortDesc: 'Tooth-colored composite resin fillings and protective groove sealants for cavities.',
-    fullDesc: 'Invisible, biomimetic composite restorations that blend seamlessly with your natural tooth shade, alongside resin sealants that lock deep grooves in molars to protect from decay.',
-    duration: '30 minutes',
-    idealFor: 'Minor to moderate cavities, worn teeth, and children’s chewing surfaces.',
-    benefits: ['Zero mercury or dark metal', 'Exact tooth shade match', 'Strong adhesive bonding', 'Preserves natural tooth structure']
-  },
-  {
     id: 'digital-xray',
-    name: 'X-ray',
+    name: 'Digital Radiography (X-Ray)',
     category: 'general',
+    imageUrl: '/clinic-photo-4-clean.jpg',
     shortDesc: 'Low-radiation digital radiography for instant, crystal-clear diagnostic imaging.',
     fullDesc: 'Instant digital sensor X-rays with up to 90% less radiation than traditional film. Reveals hidden interdental decay, root health, bone levels, and impacted teeth within seconds on our chairside monitors.',
     duration: '5 minutes',
@@ -187,96 +204,16 @@ export const ALL_SERVICES: DentalService[] = [
     benefits: ['90% lower radiation exposure', 'Immediate high-res screen display', 'Pinpoint root & bone accuracy', 'Eco-friendly chemical-free']
   },
   {
-    id: 'teeth-reshaping',
-    name: 'Teeth reshaping',
-    category: 'orthodontics',
-    shortDesc: 'Conservative enameloplasty to soften sharp edges, smooth uneven lengths, and improve bite.',
-    fullDesc: 'A gentle, painless cosmetic procedure where tiny amounts of tooth enamel are sculpted to improve the contour, balance proportions, and eliminate minor overlaps or jagged edges.',
+    id: 'check-ups',
+    name: 'Comprehensive Dental Check-ups',
+    category: 'general',
+    imageUrl: '/clinic-photo-3-clean.jpg',
+    shortDesc: 'Comprehensive oral examination, intraoral camera screening, and dental evaluation.',
+    fullDesc: 'Detailed inspection of teeth, gums, tongue, bite alignment, and oral tissues using modern intraoral visualization to catch tiny concerns before they turn into costly problems.',
     duration: '20 to 30 minutes',
-    idealFor: 'Minor chips, irregular tooth heights, or pointed canines.',
-    benefits: ['No anesthesia required', 'Immediate one-visit results', 'Smooth, balanced smile line', 'Painless and non-invasive']
-  },
-  {
-    id: 'bonding',
-    name: 'Bonding',
-    category: 'cosmetic',
-    shortDesc: 'Direct composite artistry to fix small chips, close minor gaps, and restore tooth symmetry.',
-    fullDesc: 'Direct chairside composite bonding applies tooth-matched resin to fix chipped corners, close diastemas (gaps), or conceal localized stains in a single convenient visit.',
-    duration: '30 to 45 minutes per tooth',
-    idealFor: 'Chipped front teeth, minor spacing, and quick smile touch-ups.',
-    benefits: ['Affordable cosmetic enhancement', 'Single-visit transformation', 'Completely painless', 'Easily repairable']
-  },
-  {
-    id: 'cosmetic-procedures',
-    name: 'Cosmetic procedures',
-    category: 'cosmetic',
-    shortDesc: 'Comprehensive smile design, gingival recontouring, and aesthetic facial harmony.',
-    fullDesc: 'Holistic smile rejuvenation combining digital smile planning, gum depigmentation/sculpting, and aesthetic restorations tailored to your facial features and lip dynamics.',
-    duration: 'Tailored per case',
-    idealFor: 'Anyone desiring a confident, photogenic, harmonious smile.',
-    benefits: ['Comprehensive digital planning', 'Tailored to your facial contours', 'Natural harmonious outcome', 'Boosts self-esteem']
-  },
-  {
-    id: 'extractions',
-    name: 'Extractions',
-    category: 'surgery',
-    shortDesc: 'Gentle, minimally traumatic tooth removals including wisdom teeth under local anesthesia.',
-    fullDesc: 'When a tooth cannot be saved or causes severe impaction, our gentle extraction protocol minimizes tissue trauma, ensuring rapid healing, minimal swelling, and smooth recovery.',
-    duration: '20 to 40 minutes',
-    idealFor: 'Severely broken teeth, advanced periodontitis, or impacted wisdom teeth.',
-    benefits: ['Completely painless local anesthesia', 'Minimally invasive preservation of bone', 'Detailed post-op care guidance', 'Quick recovery time']
-  },
-  {
-    id: 'oral-surgery',
-    name: 'Oral surgery',
-    category: 'surgery',
-    shortDesc: 'Surgical extraction of impacted teeth, frenectomies, and alveolar bone contouring.',
-    fullDesc: 'Comprehensive minor oral surgical procedures performed under strict aseptic hospital-grade sterilization protocols to address impacted molars, cysts, or prepare jaws for prosthetics.',
-    duration: '30 to 60 minutes',
-    idealFor: 'Impacted third molars, frenum restrictions, or pre-prosthetic needs.',
-    benefits: ['Strict sterile environment', 'Specialist surgical precision', 'Low post-procedure discomfort', 'Rapid healing protocols']
-  },
-  {
-    id: 'emergency-care',
-    name: 'Emergency care',
-    category: 'surgery',
-    popular: true,
-    shortDesc: 'Priority relief for severe toothaches, chipped teeth, knocked-out teeth, and facial trauma.',
-    fullDesc: 'Sudden toothaches, knocked-out teeth, broken braces, or sports injuries receive immediate priority attention at Apex Dental Clinic to quickly alleviate distress and protect your smile.',
-    duration: 'Immediate triage',
-    idealFor: 'Acute throbbing pain, facial swelling, broken teeth, or dental trauma.',
-    benefits: ['Same-day emergency slots', 'Rapid pain relief protocols', 'Trauma tooth preservation', 'Direct doctor phone support']
-  },
-  {
-    id: 'dentures-bridges',
-    name: 'Dentures & bridges',
-    category: 'implants',
-    shortDesc: 'Flexible dentures, cast partials, and precision-fitted fixed ceramic bridges.',
-    fullDesc: 'From lightweight flexible Valplast dentures to full acrylic sets and fixed dental bridges, we restore your chewing ability, facial fullness, and confidence comfortably.',
-    duration: '3 to 5 appointments',
-    idealFor: 'Multiple missing teeth requiring practical, time-tested restorative solutions.',
-    benefits: ['Lightweight and comfortable fit', 'Restores natural facial contours', 'Custom shade & tooth arrangement', 'Affordable tooth replacement']
-  },
-  {
-    id: 'mouth-guards',
-    name: 'Mouth guards',
-    category: 'general',
-    shortDesc: 'Custom-fitted night guards for bruxism (teeth grinding) and athletic sports guards.',
-    fullDesc: 'Custom-molded protective appliances that shield teeth from nocturnal grinding, morning jaw soreness, TMJ strain, and high-impact sports collisions.',
-    duration: '2 quick visits (impressions & delivery)',
-    idealFor: 'Night teeth grinders, clenchers, TMJ pain sufferers, and active athletes.',
-    benefits: ['Prevents tooth wear and fractures', 'Relieves morning jaw and temple aches', 'Exact custom-fit comfort', 'Protects orthodontic braces']
-  },
-  {
-    id: 'online-dentist-booking',
-    name: 'Online dentist booking',
-    category: 'general',
-    shortDesc: 'Convenient 24/7 direct WhatsApp and digital appointment scheduling.',
-    fullDesc: 'Skip the wait and telephone tag. Schedule your consultation with Dr. Darshak Vaghani directly with instant WhatsApp confirmation, tailored time slots, and smart calendar reminders.',
-    duration: 'Instant (1 minute)',
-    idealFor: 'Busy professionals and families who prefer effortless digital scheduling.',
-    benefits: ['Direct WhatsApp confirmation', 'Zero waiting room hassle', 'Choose your preferred day & slot', '24/7 round-the-clock availability']
-  },
+    idealFor: 'Everyone every 6 months for proactive preventive health.',
+    benefits: ['Early problem detection', 'Intraoral camera view for patients', 'Personalized treatment roadmap', 'Oral cancer screening']
+  }
 ];
 
 export const REVIEWS: ReviewItem[] = [

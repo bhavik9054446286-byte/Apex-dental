@@ -56,22 +56,22 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
   };
 
   return (
-    <section id="videos" className="py-16 sm:py-24 bg-gradient-to-b from-slate-900 via-teal-950 to-slate-900 text-white relative overflow-hidden">
+    <section id="videos" className="py-16 sm:py-24 bg-gradient-to-b from-[#0F1E36] via-[#16243E] to-[#0A1424] text-white relative overflow-hidden">
       {/* Decorative ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs font-bold tracking-wide uppercase">
-            <Play className="w-3.5 h-3.5 fill-teal-300" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide uppercase">
+            <Play className="w-3.5 h-3.5 fill-amber-300" />
             <span>Clinical Video & Treatment Reels</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
             See Apex Dental Care in{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-teal-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200">
               Real Motion
             </span>
           </h2>
@@ -81,7 +81,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
           </p>
 
           {/* Gujarati highlight badge */}
-          <div className="inline-block px-4 py-1.5 rounded-lg bg-teal-900/60 border border-teal-500/40 text-xs text-teal-200 font-medium">
+          <div className="inline-block px-4 py-1.5 rounded-lg bg-slate-900/80 border border-amber-500/40 text-xs text-amber-200 font-medium">
             દાંત ને લગતી કોઈ પણ સમસ્યા માટે વિડિઓ અને સારવાર ડેમો જુઓ · +91 79846 77833
           </div>
         </div>
@@ -141,7 +141,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                     {!isPlaying && (
                       <button
                         onClick={togglePlay}
-                        className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-teal-500/90 hover:bg-teal-400 text-slate-950 flex items-center justify-center shadow-xl transition-all transform hover:scale-110 active:scale-95 cursor-pointer z-10"
+                        className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center justify-center shadow-xl transition-all transform hover:scale-110 active:scale-95 cursor-pointer z-10"
                         title="Click to play video"
                       >
                         <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-slate-950 ml-1" />
@@ -155,7 +155,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                           <p className="font-bold text-sm text-white drop-shadow-md">
                             Dr. Darshak Vaghani
                           </p>
-                          <p className="text-[11px] text-teal-300 drop-shadow-sm">
+                          <p className="text-[11px] text-amber-300 drop-shadow-sm">
                             B.D.S., M.D.S. (Orthodontist) · Surat
                           </p>
                         </div>
@@ -180,7 +180,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                       {/* Video Quick Play / Pause Button inside player */}
                       <button
                         onClick={togglePlay}
-                        className="w-full py-2.5 px-4 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md"
+                        className="w-full py-2.5 px-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md"
                       >
                         {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-white" />}
                         <span>{isPlaying ? 'Pause Video' : 'Play Official Clinic Reel'}</span>
@@ -201,7 +201,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   onClick={() => setActiveTab('braces')}
                   className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === 'braces'
-                      ? 'bg-teal-600 text-white shadow-md'
+                      ? 'bg-amber-500 text-slate-950 shadow-md font-bold'
                       : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
                   }`}
                 >
@@ -211,7 +211,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   onClick={() => setActiveTab('pediatric')}
                   className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === 'pediatric'
-                      ? 'bg-teal-600 text-white shadow-md'
+                      ? 'bg-amber-500 text-slate-950 shadow-md font-bold'
                       : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
                   }`}
                 >
@@ -221,7 +221,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   onClick={() => setActiveTab('clinic')}
                   className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     activeTab === 'clinic'
-                      ? 'bg-teal-600 text-white shadow-md'
+                      ? 'bg-amber-500 text-slate-950 shadow-md font-bold'
                       : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
                   }`}
                 >
@@ -240,7 +240,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   <h3 className="text-xl sm:text-2xl font-black text-white">
                     Orthodontic Wire Bending & Bracket Placement
                   </h3>
-                  <p className="text-xs sm:text-sm text-teal-300 font-semibold">
+                  <p className="text-xs sm:text-sm text-amber-300 font-semibold">
                     વાંકાચૂકા દાંત ની સારવાર માટે સ્પેશિયાલિસ્ટ સંપર્ક
                   </p>
 
@@ -250,14 +250,14 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
                     <div className="flex items-start gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
-                      <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-white block font-semibold">Custom Arch Mechanics</strong>
                         <span className="text-slate-400">Tailored tooth movement plans for rapid straightening.</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
-                      <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-white block font-semibold">Digital OPG Diagnosis</strong>
                         <span className="text-slate-400">Full jaw X-ray analysis to inspect root parallelism.</span>
@@ -266,11 +266,11 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   </div>
 
                   {/* Direct Contact Banner from Video */}
-                  <div className="bg-teal-900/40 border border-teal-500/30 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <div className="bg-slate-900/60 border border-amber-500/30 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <div className="text-xs text-teal-200 font-medium">Direct Doctor Hotline:</div>
+                      <div className="text-xs text-amber-200 font-medium">Direct Doctor Hotline:</div>
                       <div className="text-sm sm:text-base font-black text-white flex items-center gap-2">
-                        <Phone className="w-4 h-4 text-teal-400" />
+                        <Phone className="w-4 h-4 text-amber-400" />
                         <span>+91 79846 77833 / 98241 57534</span>
                       </div>
                     </div>
@@ -310,14 +310,14 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
                     <div className="flex items-start gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
-                      <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-white block font-semibold">Growth Interception</strong>
                         <span className="text-slate-400">Early jaw guidance prevents complex future surgeries.</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
-                      <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <div>
                         <strong className="text-white block font-semibold">Positive Experience</strong>
                         <span className="text-slate-400">Warm chairside manners with zero treatment anxiety.</span>
@@ -328,7 +328,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
                   <div className="pt-2">
                     <button
                       onClick={() => onBookClick?.('Pediatric dental services')}
-                      className="w-full sm:w-auto px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      className="w-full sm:w-auto px-5 py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Book Child Dental Consultation</span>
@@ -340,15 +340,15 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
               {/* Tab 3 Content: Clinic & X-Ray Tour */}
               {activeTab === 'clinic' && (
                 <div className="space-y-4 bg-slate-800/50 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-slate-700/70">
-                  <div className="flex items-center gap-2 text-teal-400 text-xs font-bold uppercase tracking-wider">
-                    <Award className="w-4 h-4 text-teal-400" />
+                  <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    <Award className="w-4 h-4 text-amber-400" />
                     <span>Clinic Tour & Safety Standards</span>
                   </div>
 
                   <h3 className="text-xl sm:text-2xl font-black text-white">
                     Advanced Dental Operatory & Sterilization
                   </h3>
-                  <p className="text-xs sm:text-sm text-teal-300 font-semibold">
+                  <p className="text-xs sm:text-sm text-amber-300 font-semibold">
                     બીજો માળ, કાહન વેડિંગ પેલેસ ઉપર, મહાદેવ ચોક પાસે, મોટા વરાછા, સુરત
                   </p>
 
@@ -358,11 +358,11 @@ export const VideoSection: React.FC<VideoSectionProps> = ({ onBookClick }) => {
 
                   <div className="grid grid-cols-2 gap-3 pt-2 text-center text-xs">
                     <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-700/50">
-                      <div className="text-xl font-black text-teal-400">100%</div>
+                      <div className="text-xl font-black text-amber-400">100%</div>
                       <div className="text-[11px] text-slate-400">Autoclaved Instruments</div>
                     </div>
                     <div className="p-2.5 bg-slate-900/60 rounded-xl border border-slate-700/50">
-                      <div className="text-xl font-black text-teal-400">5.0 ★</div>
+                      <div className="text-xl font-black text-amber-400">5.0 ★</div>
                       <div className="text-[11px] text-slate-400">Google Verified Trust</div>
                     </div>
                   </div>

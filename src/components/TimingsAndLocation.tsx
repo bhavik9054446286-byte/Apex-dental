@@ -30,7 +30,7 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
         {/* Section Header */}
         <RevealOnScroll variant="fade-up" duration={700}>
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-          <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+          <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
             Visit & Schedule
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -54,7 +54,7 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
             <div className="bg-slate-50 rounded-2xl border border-slate-200/90 p-6 sm:p-8 space-y-6 shadow-sm">
             <div className="flex items-center justify-between pb-4 border-b border-slate-200">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-teal-700 text-white flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-[#0F1E36] text-white flex items-center justify-center">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
@@ -78,14 +78,14 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
                     key={item.day}
                     className={`flex items-center justify-between p-3 rounded-xl transition-all ${
                       isToday
-                        ? 'bg-teal-700 text-white font-semibold shadow-xs'
+                        ? 'bg-[#0F1E36] text-white font-semibold shadow-xs'
                         : 'bg-white border border-slate-200/80 text-slate-700 hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-sm">{item.day}</span>
                       {isToday && (
-                        <span className="text-[10px] bg-teal-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                        <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
                           Today
                         </span>
                       )}
@@ -95,7 +95,7 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
                         </span>
                       )}
                     </div>
-                    <span className={`text-xs sm:text-sm font-mono shrink-0 ml-2 ${isToday ? 'text-teal-100' : 'text-slate-600'}`}>
+                    <span className={`text-xs sm:text-sm font-mono shrink-0 ml-2 ${isToday ? 'text-amber-200' : 'text-slate-600'}`}>
                       {item.formatted}
                     </span>
                   </div>
@@ -106,7 +106,7 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
             {/* Note on appointments */}
             <div className="bg-white p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1">
               <div className="font-semibold text-slate-800 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-teal-600" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600" />
                 <span>Zero Waiting Policy</span>
               </div>
               <p className="text-slate-500">
@@ -136,7 +136,7 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
             {/* Exact Landmark Address Details */}
             <div className="bg-white rounded-xl border border-slate-200 p-5 space-y-4">
               <div className="space-y-1">
-                <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+                <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
                   Full Postal Address
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
@@ -166,11 +166,11 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-teal-800 hover:bg-teal-900 text-white text-xs sm:text-sm font-bold rounded-xl transition-colors cursor-pointer shadow-2xs"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#0F1E36] hover:bg-[#0F1E36] text-white text-xs sm:text-sm font-bold rounded-xl transition-colors cursor-pointer shadow-2xs"
                 >
                   <Navigation className="w-4 h-4 text-cyan-300" />
                   <span>Open in Google Maps & Get Directions</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-teal-300" />
+                  <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
                 </a>
               </div>
             </div>
@@ -205,14 +205,14 @@ export const TimingsAndLocation: React.FC<TimingsAndLocationProps> = ({ onBookCl
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a
                 href={`mailto:${CLINIC_CONTACT.email}`}
-                className="bg-white border border-slate-200 hover:border-teal-400 rounded-xl p-3.5 flex items-center gap-3 transition-all hover:shadow-md group"
+                className="bg-white border border-slate-200 hover:border-amber-400 rounded-xl p-3.5 flex items-center gap-3 transition-all hover:shadow-md group"
               >
                 <div className="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
                   <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Official Gmail</span>
-                  <span className="block text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-teal-700 transition-colors truncate">
+                  <span className="block text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-amber-700 transition-colors truncate">
                     {CLINIC_CONTACT.email}
                   </span>
                 </div>

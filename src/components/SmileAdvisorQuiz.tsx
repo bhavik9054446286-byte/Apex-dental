@@ -80,7 +80,7 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll variant="fade-up" duration={700}>
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+          <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
             Interactive Dental Assessment
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -96,22 +96,22 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
         <div className="bg-white rounded-2xl border border-slate-200/90 shadow-lg p-6 sm:p-8">
           {/* Step Indicators */}
           <div className="flex items-center justify-between max-w-xs mx-auto mb-8 text-xs font-semibold">
-            <div className={`flex items-center gap-1.5 ${currentStep >= 1 ? 'text-teal-700 font-bold' : 'text-slate-400'}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 1 ? 'bg-teal-700 text-white' : 'bg-slate-200 text-slate-500'}`}>
+            <div className={`flex items-center gap-1.5 ${currentStep >= 1 ? 'text-amber-700 font-bold' : 'text-slate-400'}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 1 ? 'bg-[#0F1E36] text-white' : 'bg-slate-200 text-slate-500'}`}>
                 1
               </span>
               <span>Primary Goal</span>
             </div>
             <div className="w-8 h-0.5 bg-slate-200" />
-            <div className={`flex items-center gap-1.5 ${currentStep >= 2 ? 'text-teal-700 font-bold' : 'text-slate-400'}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 2 ? 'bg-teal-700 text-white' : 'bg-slate-200 text-slate-500'}`}>
+            <div className={`flex items-center gap-1.5 ${currentStep >= 2 ? 'text-amber-700 font-bold' : 'text-slate-400'}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep >= 2 ? 'bg-[#0F1E36] text-white' : 'bg-slate-200 text-slate-500'}`}>
                 2
               </span>
               <span>Timeline</span>
             </div>
             <div className="w-8 h-0.5 bg-slate-200" />
-            <div className={`flex items-center gap-1.5 ${currentStep === 3 ? 'text-teal-700 font-bold' : 'text-slate-400'}`}>
-              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep === 3 ? 'bg-teal-700 text-white' : 'bg-slate-200 text-slate-500'}`}>
+            <div className={`flex items-center gap-1.5 ${currentStep === 3 ? 'text-amber-700 font-bold' : 'text-slate-400'}`}>
+              <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${currentStep === 3 ? 'bg-[#0F1E36] text-white' : 'bg-slate-200 text-slate-500'}`}>
                 3
               </span>
               <span>Advice</span>
@@ -132,12 +132,12 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
                       setConcern(item.id);
                       setCurrentStep(2);
                     }}
-                    className="p-4 text-left rounded-xl border border-slate-200 hover:border-teal-500 hover:bg-teal-50/50 transition-all group cursor-pointer shadow-2xs space-y-1.5"
+                    className="p-4 text-left rounded-xl border border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 transition-all group cursor-pointer shadow-2xs space-y-1.5"
                   >
-                    <div className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                    <div className="text-xs font-bold text-amber-700 uppercase tracking-wider">
                       {item.category}
                     </div>
-                    <div className="font-bold text-sm text-slate-900 group-hover:text-teal-900">
+                    <div className="font-bold text-sm text-slate-900 group-hover:text-amber-900">
                       {item.title}
                     </div>
                     <p className="text-xs text-slate-500 leading-normal">
@@ -153,7 +153,7 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
           {currentStep === 2 && (
             <div className="space-y-6 max-w-lg mx-auto text-center">
               <div>
-                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
                   Question 2 of 2
                 </span>
                 <h3 className="text-lg font-bold text-slate-900 mt-1">
@@ -174,7 +174,7 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
                       setDuration(timeOption);
                       setCurrentStep(3);
                     }}
-                    className="p-4 text-sm font-semibold text-slate-700 bg-slate-50 hover:bg-teal-50 hover:text-teal-900 rounded-xl border border-slate-200 hover:border-teal-400 transition-all cursor-pointer"
+                    className="p-4 text-sm font-semibold text-slate-700 bg-slate-50 hover:bg-amber-50 hover:text-amber-900 rounded-xl border border-slate-200 hover:border-amber-400 transition-all cursor-pointer"
                   >
                     {timeOption}
                   </button>
@@ -198,7 +198,7 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
               </div>
 
               <div className="space-y-1">
-                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
                   Recommended Treatment by Dr. Darshak Vaghani
                 </span>
                 <h3 className="text-2xl font-black text-slate-900">
@@ -231,9 +231,9 @@ export const SmileAdvisorQuiz: React.FC<SmileAdvisorQuizProps> = ({
 
                 <button
                   onClick={() => onAskAi(`Tell me more about ${selectedConcernObj.recommended} at Apex Dental Clinic`)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-teal-50 hover:bg-teal-100 text-teal-900 font-semibold text-sm rounded-xl border border-teal-200 transition-colors cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-amber-50 hover:bg-amber-100 text-amber-900 font-semibold text-sm rounded-xl border border-amber-200 transition-colors cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-teal-600" />
+                  <Sparkles className="w-4 h-4 text-amber-600" />
                   <span>Ask AI Details</span>
                 </button>
               </div>

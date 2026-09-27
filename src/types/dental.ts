@@ -18,6 +18,7 @@ export interface DentalService {
   idealFor: string;
   benefits: string[];
   popular?: boolean;
+  imageUrl?: string;
 }
 
 export interface DayTiming {

@@ -20,7 +20,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAi, onBookClick })
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll variant="fade-up" duration={700}>
         <div className="text-center space-y-3 mb-12">
-          <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+          <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
             Got Questions?
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -51,7 +51,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAi, onBookClick })
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-teal-700' : ''
+                      isOpen ? 'rotate-180 text-amber-700' : ''
                     }`}
                   />
                 </button>
@@ -69,9 +69,9 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAi, onBookClick })
 
         {/* AI Prompt Help Box */}
         <RevealOnScroll variant="fade-up" delay={200} duration={700}>
-        <div className="mt-10 p-6 bg-gradient-to-r from-teal-50 via-cyan-50 to-slate-50 rounded-2xl border border-teal-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 p-6 bg-gradient-to-r from-amber-50 via-orange-50/40 to-slate-50 rounded-2xl border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-center sm:text-left">
-            <div className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#0F1E36] text-white flex items-center justify-center shrink-0">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <div>
@@ -84,7 +84,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAi, onBookClick })
 
           <button
             onClick={onOpenAi}
-            className="inline-flex items-center gap-2 px-4 py-2.5 bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs rounded-xl shadow-xs transition-colors shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0F1E36] hover:bg-[#0F1E36] text-white font-bold text-xs rounded-xl shadow-xs transition-colors shrink-0 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-cyan-300" />
             <span>Ask Dental AI Now</span>

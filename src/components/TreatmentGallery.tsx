@@ -50,7 +50,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
         {/* Section Header */}
         <RevealOnScroll variant="fade-up" duration={700}>
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+          <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
             Clinic Tour & Clinical Visuals
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -64,7 +64,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
         {/* Real Clinic Facilities Highlight Strip (Reflecting the uploaded clinic setup) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-sm shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm shrink-0">
               01
             </div>
             <div>
@@ -105,8 +105,8 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
         </div>
 
         {/* Top Featured Clinical Case Banner */}
-        <div className="mb-12 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-teal-800/40 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="mb-12 bg-gradient-to-br from-[#0F1E36] via-[#16243E] to-[#0A1424] rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-amber-500/30 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             {/* Left Case Image Showcase */}
@@ -119,8 +119,8 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                 alt={FEATURED_GALLERY_CASE.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute top-3 left-3 bg-teal-600/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-teal-200" />
+              <div className="absolute top-3 left-3 bg-[#0F1E36]/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 Featured Clinical Case
               </div>
               <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
@@ -133,8 +133,8 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
 
             {/* Right Clinical Details */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider border border-teal-500/30">
-                <Sparkles className="w-3.5 h-3.5 text-teal-300" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider border border-amber-500/30">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 Dr. Darshak Vaghani · M.D.S. Orthodontist
               </div>
 
@@ -149,7 +149,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                 {FEATURED_GALLERY_CASE.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-slate-200">
-                    <Check className="w-4 h-4 text-teal-400 shrink-0" />
+                    <Check className="w-4 h-4 text-amber-400 shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -158,7 +158,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               <div className="pt-4 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => setSelectedItem(FEATURED_GALLERY_CASE)}
-                  className="px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-lg hover:shadow-teal-500/25 flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 bg-[#0F1E36] hover:bg-[#1a2e4d] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-lg hover:shadow-amber-500/25 flex items-center gap-2 cursor-pointer"
                 >
                   <ZoomIn className="w-4 h-4" />
                   View High-Res Photo
@@ -191,7 +191,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                 activeTab === tab.id
-                  ? 'bg-white text-teal-900 shadow-xs'
+                  ? 'bg-white text-amber-900 shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
               }`}
             >
@@ -208,7 +208,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-xl hover:border-teal-400 transition-all cursor-pointer flex flex-col"
+              className="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs hover:shadow-xl hover:border-amber-400 transition-all cursor-pointer flex flex-col"
             >
               {/* Image Container with Fallback */}
               <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
@@ -232,7 +232,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                 </div>
 
                 {/* Hover Quick Action Indicator */}
-                <div className="absolute inset-0 bg-teal-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white">
+                <div className="absolute inset-0 bg-[#0F1E36]/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white">
                   <span className="p-2 rounded-full bg-white/20 backdrop-blur-md">
                     <ZoomIn className="w-5 h-5 text-white" />
                   </span>
@@ -243,10 +243,10 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
               {/* Card Meta Content */}
               <div className="p-4 flex-1 flex flex-col justify-between space-y-2">
                 <div>
-                  <div className="text-[11px] font-semibold text-teal-700">
+                  <div className="text-[11px] font-semibold text-amber-700">
                     {item.treatmentTag}
                   </div>
-                  <h3 className="font-bold text-sm text-slate-900 group-hover:text-teal-800 transition-colors line-clamp-1">
+                  <h3 className="font-bold text-sm text-slate-900 group-hover:text-amber-800 transition-colors line-clamp-1">
                     {item.title}
                   </h3>
                   <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
@@ -254,7 +254,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-teal-700 font-semibold">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-amber-700 font-semibold">
                   <span>Explore procedure</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -309,7 +309,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
             {/* Modal Content - Scrollable if screen height is constrained */}
             <div className="p-5 sm:p-6 overflow-y-auto space-y-4 flex-1">
               <div>
-                <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">
                   {selectedItem.categoryLabel}
                 </span>
                 <h3 className="text-lg sm:text-2xl font-bold text-slate-900 mt-1">
@@ -328,7 +328,7 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
                   {selectedItem.features.map((feature, i) => (
                     <div key={i} className="flex items-center gap-2">
-                      <Check className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                      <Check className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                       <span>{feature}</span>
                     </div>
                   ))}
@@ -355,9 +355,9 @@ export const TreatmentGallery: React.FC<TreatmentGalleryProps> = ({
                     setSelectedItem(null);
                     onAskAi(`Tell me about ${tag} at Apex Dental Clinic`);
                   }}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-teal-50 hover:bg-teal-100 text-teal-900 font-semibold text-xs sm:text-sm rounded-xl border border-teal-200 transition-colors cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-amber-50 hover:bg-amber-100 text-amber-900 font-semibold text-xs sm:text-sm rounded-xl border border-amber-200 transition-colors cursor-pointer"
                 >
-                  <Sparkles className="w-4 h-4 text-teal-600" />
+                  <Sparkles className="w-4 h-4 text-amber-600" />
                   <span>Ask AI</span>
                 </button>
               </div>

@@ -197,7 +197,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
   return (
     <div className={`flex flex-col bg-white rounded-2xl border border-slate-200/90 shadow-xl overflow-hidden ${isModal ? 'h-[85vh] max-h-[700px]' : 'h-[620px]'}`}>
       {/* Chat Header */}
-      <div className="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between">
+      <div className="bg-gradient-to-r from-[#0F1E36] via-[#16243E] to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-xs flex-shrink-0">
             <img src="/apex-logo.png" alt="Apex Dental Clinic" className="w-full h-full object-contain" />
@@ -209,9 +209,9 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
                 Online
               </span>
             </div>
-            <p className="text-xs text-teal-200/80 flex items-center gap-1.5">
+            <p className="text-xs text-amber-200/80 flex items-center gap-1.5">
               <span>Dr. Darshak Vaghani Clinic Knowledgebase</span>
-              <span className="text-teal-400">·</span>
+              <span className="text-amber-400">·</span>
               <Languages className="w-3 h-3 text-cyan-300" />
               <span>English / ગુજરાતી / हिंदी</span>
             </p>
@@ -221,7 +221,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
         <div className="flex items-center gap-2">
           <button
             onClick={handleReset}
-            className="p-2 text-teal-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-amber-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
             title="Restart conversation"
           >
             <RefreshCw className="w-4 h-4" />
@@ -229,7 +229,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
           {isModal && onCloseModal && (
             <button
               onClick={onCloseModal}
-              className="p-2 text-teal-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+              className="p-2 text-amber-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
               title="Close assistant"
             >
               <X className="w-5 h-5" />
@@ -247,7 +247,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
           <button
             key={i}
             onClick={() => handleSend(prompt)}
-            className="shrink-0 bg-white hover:bg-teal-50 text-slate-700 hover:text-teal-800 border border-slate-200 hover:border-teal-300 px-3 py-1 rounded-full text-xs font-medium transition-all shadow-2xs cursor-pointer"
+            className="shrink-0 bg-white hover:bg-amber-50 text-slate-700 hover:text-amber-800 border border-slate-200 hover:border-amber-300 px-3 py-1 rounded-full text-xs font-medium transition-all shadow-2xs cursor-pointer"
           >
             {prompt}
           </button>
@@ -273,7 +273,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
                 className={`max-w-[85%] sm:max-w-[78%] rounded-2xl p-4 text-sm leading-relaxed shadow-xs ${
                   isBot
                     ? 'bg-white text-slate-800 border border-slate-200/90 rounded-tl-sm'
-                    : 'bg-teal-700 text-white rounded-tr-sm'
+                    : 'bg-[#0F1E36] text-white rounded-tr-sm'
                 }`}
               >
                 {/* Message Content */}
@@ -284,7 +284,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
                 {/* Footer with timestamp and action buttons */}
                 <div
                   className={`flex items-center justify-between gap-3 mt-2 pt-2 text-[10px] border-t ${
-                    isBot ? 'border-slate-100 text-slate-400' : 'border-teal-600/60 text-teal-200'
+                    isBot ? 'border-slate-100 text-slate-400' : 'border-amber-600/60 text-amber-200'
                   }`}
                 >
                   <span>{msg.timestamp}</span>
@@ -312,7 +312,7 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
                       {onBookTreatment && (
                         <button
                           onClick={() => onBookTreatment()}
-                          className="text-teal-700 font-semibold hover:underline flex items-center gap-0.5 cursor-pointer ml-1"
+                          className="text-amber-700 font-semibold hover:underline flex items-center gap-0.5 cursor-pointer ml-1"
                         >
                           <MessageSquare className="w-3 h-3 text-emerald-600" />
                           <span>WhatsApp Book</span>
@@ -335,11 +335,11 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
         {/* Loading typing bubble */}
         {isLoading && (
           <div className="flex items-start gap-3 justify-start">
-            <div className="w-8 h-8 rounded-lg bg-teal-700 text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-8 h-8 rounded-lg bg-[#0F1E36] text-white flex items-center justify-center shrink-0 shadow-xs">
               <Bot className="w-4 h-4 text-cyan-200" />
             </div>
             <div className="bg-white border border-slate-200 rounded-2xl rounded-tl-sm p-4 text-xs text-slate-500 shadow-xs flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-teal-600 animate-spin" />
+              <Sparkles className="w-4 h-4 text-amber-600 animate-spin" />
               <span>Consulting Apex Dental knowledge base...</span>
             </div>
           </div>
@@ -363,12 +363,12 @@ Feel free to ask in **English**, **ગુજરાતી (Gujarati)**, or **ह�
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isLoading}
-            className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-600/20 focus:border-teal-600 transition-all disabled:opacity-60"
+            className="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/20 focus:border-amber-600 transition-all disabled:opacity-60"
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3 bg-teal-700 hover:bg-teal-800 text-white rounded-xl text-xs sm:text-sm font-semibold transition-all disabled:opacity-40 disabled:hover:bg-teal-700 cursor-pointer shadow-xs"
+            className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3 bg-[#0F1E36] hover:bg-[#0F1E36] text-white rounded-xl text-xs sm:text-sm font-semibold transition-all disabled:opacity-40 disabled:hover:bg-[#1a2e4d] cursor-pointer shadow-xs"
           >
             <Send className="w-4 h-4" />
             <span className="hidden sm:inline">Send</span>

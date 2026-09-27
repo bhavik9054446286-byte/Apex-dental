@@ -14,7 +14,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({ onBookClick }) => 
         {/* Section Header */}
         <RevealOnScroll variant="fade-up" duration={700}>
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="text-xs font-bold uppercase tracking-wider text-teal-700">
+          <div className="text-xs font-bold uppercase tracking-wider text-amber-700">
             Real Patient Experiences
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -58,7 +58,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({ onBookClick }) => 
                 </div>
 
                 {/* Treatment Tag as clean unboxed text */}
-                <div className="text-xs font-semibold text-teal-700">
+                <div className="text-xs font-semibold text-amber-700">
                   Treatment: {review.treatment}
                 </div>
 
@@ -71,7 +71,7 @@ export const GoogleReviews: React.FC<GoogleReviewsProps> = ({ onBookClick }) => 
               {/* Reviewer Details */}
               <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-800 font-bold flex items-center justify-center text-xs">
+                  <div className="w-8 h-8 rounded-full bg-amber-100 text-amber-800 font-bold flex items-center justify-center text-xs">
                     {review.author[0]}
                   </div>
                   <span className="font-bold text-slate-900">{review.author}</span>
