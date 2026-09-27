@@ -25,10 +25,9 @@ app.get(['/googlefcc0d861f17d5700.html', '/googlefcc0d861f17d5700'], (_req, res)
 
 // Search Engine Sitemap & Robots Routes
 app.get(['/sitemap.xml', '/sitemaps.xml'], (req, res) => {
-  const host = (req.headers['x-forwarded-host'] as string) || req.headers.host || 'ais-pre-qyl7ee6j5jcmbg3edgbt44-278354127621.asia-east1.run.app';
-  const proto = (req.headers['x-forwarded-proto'] as string) || (req.secure ? 'https' : 'https');
-  const cleanHost = host.includes('localhost') ? host : host.split(':')[0];
-  const baseUrl = `${proto}://${cleanHost}`;
+  const host = (req.headers['x-forwarded-host'] as string) || req.headers.host || '';
+  const isLocal = host.includes('localhost') || host.includes('127.0.0.1');
+  const baseUrl = isLocal ? `http://${host}` : 'https://apexdentalsurat.in';
 
   const pages = [
     { path: '', priority: '1.0', changefreq: 'daily' },

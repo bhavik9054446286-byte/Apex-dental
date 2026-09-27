@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://ais-pre-qyl7ee6j5jcmbg3edgbt44-278354127621.asia-east1.run.app/sitemap.xml
-Sitemap: https://ais-pre-qyl7ee6j5jcmbg3edgbt44-278354127621.asia-east1.run.app/sitemaps.xml
+Sitemap: https://apexdentalsurat.in/sitemap.xml
+Sitemap: https://apexdentalsurat.in/sitemaps.xml
