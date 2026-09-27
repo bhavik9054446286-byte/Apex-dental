@@ -25,8 +25,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAi, onBookClick }) => {
     { label: 'Services', href: '#services' },
     { label: 'Smile Advisor', href: '#quiz' },
     { label: 'Timings', href: '#timings' },
-    { label: 'Reviews', href: '#reviews' },
-    { label: 'FAQs', href: '#faqs' },
   ];
 
   return (
@@ -80,17 +78,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAi, onBookClick }) => {
               <Sparkles className="w-4 h-4 text-teal-600 animate-pulse" />
               <span>Ask Dental AI</span>
             </button>
-
-            {/* Instagram Link */}
-            <a
-              href={CLINIC_CONTACT.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 lg:p-2.5 text-pink-600 hover:text-pink-700 bg-pink-50 hover:bg-pink-100 rounded-xl border border-pink-200/80 transition-all shadow-2xs group shrink-0"
-              title="Follow Apex Dental Clinic on Instagram (@apexdentalclinic16)"
-            >
-              <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            </a>
 
             {/* Direct WhatsApp Redirection Button */}
             <a

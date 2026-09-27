@@ -9,7 +9,6 @@ import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
 import { TreatmentGallery } from './components/TreatmentGallery';
 import { DoctorProfile } from './components/DoctorProfile';
-import { SmileAdvisorQuiz } from './components/SmileAdvisorQuiz';
 import { AiAssistant } from './components/AiAssistant';
 import { TimingsAndLocation } from './components/TimingsAndLocation';
 import { GoogleReviews } from './components/GoogleReviews';
@@ -80,12 +79,6 @@ export default function App() {
           onAskAiAboutService={(svc) => {
             setIsAiModalOpen(true);
           }}
-        />
-
-        {/* Interactive Smile Advisor Quiz */}
-        <SmileAdvisorQuiz 
-          onBookService={(svc) => handleBookService(svc)}
-          onAskAi={(q) => setIsAiModalOpen(true)}
         />
 
         {/* Clinic Timings & Location (Surat) */}
